@@ -1,0 +1,107 @@
+﻿@model SinExWebApp20444290.Models.PersonalShippingAccount
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Account Information</h2>
+
+<p>
+    @Html.ActionLink("Edit Information", "Edit", new { id = Model.ShippingAccountID })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Building)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Province)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccSecurityNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccHolderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccExpirationMonth)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ccExpirationYear)
+        </th>
+    </tr>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Building)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.Province)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.PostalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.ccType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.ccNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.ccSecurityNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.ccHolderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.ccExpirationMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => modelItem.ccExpirationYear)
+        </td>
+    </tr>
+
+</table>

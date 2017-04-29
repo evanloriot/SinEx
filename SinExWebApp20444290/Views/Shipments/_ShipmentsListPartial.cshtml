@@ -1,0 +1,69 @@
+﻿@model IEnumerable<SinExWebApp20444290.ViewModels.ShipmentsListViewModel>
+
+@if (Model.Any())
+{
+    <p>The following are the shipments for the specified account.</p>
+    if (ViewBag.DateError != null && ViewBag.DateError)
+    {
+        <p style="color: red">There was an error parsing your date ranges, please format correctly (00/00/0000 00:00:00 AM or 00/00/0000).</p>
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WaybillID)
+            </th>
+            <th>
+                @Html.ActionLink("Service Type", "GenerateHistoryReport", new { SortOrder = ViewBag.ServiceTypeSortParam, CurrentShippingAccountID = ViewBag.CurrentShippingAccountID })
+            </th>
+            <th>
+                @Html.ActionLink("Shipped Date", "GenerateHistoryReport", new { SortOrder = ViewBag.ShippedDateSortParam, CurrentShippingAccountID = ViewBag.CurrentShippingAccountID })
+            </th>
+            <th>
+                @Html.ActionLink("Delivered Date", "GenerateHistoryReport", new { SortOrder = ViewBag.DeliveredDateSortParam, CurrentShippingAccountID = ViewBag.CurrentShippingAccountID })
+            </th>
+            <th>
+                @Html.ActionLink("Recipient Name", "GenerateHistoryReport", new { SortOrder = ViewBag.RecipientNameSortParam, CurrentShippingAccountID = ViewBag.CurrentShippingAccountID })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfPackages)
+            </th>
+            <th>
+                @Html.ActionLink("Origin", "GenerateHistoryReport", new { SortOrder = ViewBag.OriginSortParam, CurrentShippingAccountID = ViewBag.CurrentShippingAccountID })
+            </th>
+            <th>
+                @Html.ActionLink("Destination", "GenerateHistoryReport", new { SortOrder = ViewBag.DestinationSortParam, CurrentShippingAccountID = ViewBag.CurrentShippingAccountID })
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WaybillID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ServiceType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShippedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeliveredDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfPackages)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Origin)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Destination)
+                </td>
+            </tr>
+        }
+    </table>
+}
+

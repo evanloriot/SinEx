@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.ServicePackageFee>
+
+@{
+    ViewBag.Title = "ServicePackageFees";
+}
+
+<h2>Service/Package Fees</h2>
+<script>
+    function redirect() {
+        window.location.href = "/ServicePackageFees?CurrencyType=" + document.getElementById("currency").value;
+    }
+</script>
+<div style="float: right">
+<label>Currency: </label>
+    <select id="currency" style="color:black" onchange="redirect()">
+        <option value="CNY">CNY</option>
+        <option value="HKD">HKD</option>
+        <option value="TWD">TWD</option>
+        <option value="MOP">MOP</option>
+    </select>
+</div>
+<script>
+    var url = window.location.search;
+    document.getElementById("currency").value = url.substring(14);
+</script>
+
+<table class="table" border="1" style="text-align: center">
+    <tr>
+        <th rowspan="2" style="text-align: center; font-weight: bold; font-size:large">Service Type</th>
+        <th colspan="5" style="text-align:center;  font-size:large">Package Type</th>
+    </tr>
+    <tr>
+        @for (var i = 1; i < 6; i++)
+        {
+            <td style="text-decoration:underline">
+                @foreach (var item in Model.Where(n => n.ServicePackageFeeID == i))
+                {
+                    @Html.DisplayFor(modelItem => item.PackageType.Type)
+                }
+            </td>
+        }
+        <th></th>
+    </tr>
+    @for (int i = 1; i < 7; i++)
+    {
+        <tr>
+            <td>
+                @foreach (var item in Model.Where(n => n.PackageTypeID == 1 && n.ServiceTypeID == i))
+                {
+                    @Html.DisplayFor(modelItem => item.ServiceType.Type)
+                }
+            </td>
+            <td style="border-bottom: 1px solid white;">
+                ¥
+                @foreach (var item in Model.Where(n => n.PackageTypeID == 1 && n.ServiceTypeID == i))
+                {
+                    @Html.DisplayFor(modelItem => item.Fee)
+                }
+            </td>
+            <td colspan="2" style="border-bottom: 1px solid white;">
+                ¥
+                @foreach (var item in Model.Where(n => n.PackageTypeID == 2 && n.ServiceTypeID == i))
+                {
+                    @Html.DisplayFor(modelItem => item.Fee)
+                }/kg (¥
+                @foreach (var item in Model.Where(n => n.PackageTypeID == 2 && n.ServiceTypeID == i))
+                {
+                    @Html.DisplayFor(modelItem => item.MinimumFee)
+                } minimum)
+            </td>
+            <td colspan="2" style="border-bottom: 1px solid white;">
+                ¥
+                @foreach (var item in Model.Where(n => n.PackageTypeID == 4 && n.ServiceTypeID == i))
+                {
+                    @Html.DisplayFor(modelItem => item.Fee)
+                }/kg (¥
+                @foreach (var item in Model.Where(n => n.PackageTypeID == 4 && n.ServiceTypeID == i))
+                {
+                    @Html.DisplayFor(modelItem => item.MinimumFee)
+                } minimum)
+            </td>
+        </tr>
+    }
+</table>

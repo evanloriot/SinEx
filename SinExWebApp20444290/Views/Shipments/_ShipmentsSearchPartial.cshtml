@@ -1,0 +1,20 @@
+﻿@model SinExWebApp20444290.ViewModels.ShipmentsSearchViewModel
+
+@using (Html.BeginForm("GenerateHistoryReport", "Shipments", FormMethod.Get))
+{
+    if (User.IsInRole("Employee"))
+    {
+        @Html.LabelFor(a => a.ShippingAccountID, "Shipping Account: ")
+        <span style="color: black">
+            @Html.DropDownListFor(a => a.ShippingAccountID, Model.ShippingAccounts, "Please select")
+        </span>
+        <span style="width: 2em">&emsp;</span>
+    }
+    @Html.LabelFor(a => a.StartShippedDate, "Start Shipping Date: ")
+    @Html.TextBoxFor(a => a.StartShippedDate, "Please enter a start date...", new { @type = "date" } )
+    <span style="width: 2em">&emsp;</span>
+    @Html.LabelFor(a => a.EndShippedDate, "End Shipping Date: ")
+    @Html.TextBoxFor(a => a.EndShippedDate, "Please enter an end date...", new { @type = "date" })
+    <input type="reset" />
+    <input type="submit" value="Search" />
+}

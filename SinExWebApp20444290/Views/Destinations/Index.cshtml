@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.Destination>
+
+@{
+    ViewBag.Title = "Cities Served";
+}
+
+<h2>Cities Served</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProvinceCode)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProvinceCode)
+        </td>
+    </tr>
+}
+
+</table>

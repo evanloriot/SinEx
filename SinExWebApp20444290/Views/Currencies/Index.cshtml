@@ -1,0 +1,30 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.Currency>
+
+@{
+    ViewBag.Title = "Currencies";
+}
+
+<h2>Currencies</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrencyCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExchangeRate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrencyCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExchangeRate)
+        </td>
+    </tr>
+}
+
+</table>

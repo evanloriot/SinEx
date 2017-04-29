@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Estimate Cost";
+}
+
+<h2>Estimate Cost</h2>
+
+<table>
+    <tr>
+        <td>
+            <label>Origin: </label>
+        </td>
+        <td>
+            <input id="origin" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Destination: </label>
+        </td>
+        <td>
+            <input id="destination" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Service Type: </label>
+        </td>
+        <td>
+            <select id="serviceType" style="color: black;">
+                <option value="1">Same Day</option>
+                <option value="2">Next Day 10:30</option>
+                <option value="3">Next Day 12:00</option>
+                <option value="4">Next Day 15:00</option>
+                <option value="5">2nd Day</option>
+                <option value="6">Ground</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Package Type: </label>
+        </td>
+        <td>
+            <select id="packageType" style="color: black;">
+                <option value="1">Envelope</option>
+                <option value="2">Pak</option>
+                <option value="3">Tube</option>
+                <option value="4">Box - small</option>
+                <option value="5">Box - medium</option>
+                <option value="6">Box - large</option>
+                <option value="7">Customer</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Weight: </label>
+        </td>
+        <td>
+            <input id="weight" type="text" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label>Currency: </label>
+        </td>
+        <td>
+            <select id="currency" style="color: black;">
+                <option value="1.00">CNY</option>
+                <option value="1.13">HKD</option>
+                <option value="4.56">TWD</option>
+                <option value="1.16">MOP</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<button style="color: black;" onclick="submit()">Estimate</button><br /><br />
+
+@if (ViewBag.Cost != null && ViewBag.Cost != 0)
+{
+    <div>Cost: ¥@(ViewBag.PreCost * ViewBag.Rate)</div>
+    if (ViewBag.IsOverWeight)
+    {
+        <div>Overwight charge: ¥@(500.00 * ViewBag.Rate)</div>
+    }
+    <div>Estimated cost: ¥@ViewBag.Cost</div>
+}
+
+<script>
+    function submit() {
+        window.location.href = "/ServicePackageFees/EstimateCost?Origin=" +
+            document.getElementById("origin").value +
+            "&destination=" +
+            document.getElementById("destination").value +
+            "&serviceType=" +
+            document.getElementById("serviceType").value +
+            "&packageType=" +
+            document.getElementById("packageType").value +
+            "&weight=" +
+            document.getElementById("weight").value + 
+            "&currency=" + 
+            document.getElementById("currency").value;
+    }
+</script>

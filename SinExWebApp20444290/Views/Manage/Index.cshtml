@@ -83,5 +83,15 @@
                     }
                 }*@
         </dd>
+        <dd>
+            @if (ViewBag.AccountType == "Personal")
+            {
+                @Html.ActionLink("View Account Information", "Index", "PersonalShippingAccounts")
+            }
+            else
+            {
+                @Html.ActionLink("View Account Information", "Index", "BusinessShippingAccounts")
+            }
+        </dd>
     </dl>
 </div>

@@ -13,6 +13,8 @@ namespace SinExWebApp20444290.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        private SinExDatabaseContext db = new SinExDatabaseContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -72,6 +74,22 @@ namespace SinExWebApp20444290.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
+
+            var userQuery = from s in db.ShippingAccounts select new { s.ShippingAccountID, s.UserName };
+            string username = User.Identity.GetUserName();
+            userQuery = userQuery.Where(s => s.UserName == username);
+            int account = userQuery.ToList()[0].ShippingAccountID;
+
+            ViewBag.AccountType = "Business";
+            try
+            {
+                BusinessShippingAccount shippingAccount = (BusinessShippingAccount)db.ShippingAccounts.Find(account);
+            }
+            catch
+            {
+                ViewBag.AccountType = "Personal";
+            }
+
             return View(model);
         }
 
