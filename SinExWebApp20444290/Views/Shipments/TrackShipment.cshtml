@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "TrackShipment";
+}
+
+<h2>Track Shipment</h2>
+
+<label>Waybill Number: </label>
+<input id="waybill" type="text" />
+<button onclick="submit()" style="color: black">Track</button>
+
+<script>
+    function submit() {
+        window.location.href = "/Shipments/TrackShipment/" +
+            document.getElementById("waybill").value;
+    }
+</script>
+
+@Html.Partial("_TrackingListPartial")
+

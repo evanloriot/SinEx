@@ -243,12 +243,15 @@
     <Compile Include="Models\Shipment.cs" />
     <Compile Include="Models\ShippingAccount.cs" />
     <Compile Include="Models\SinExDatabaseContext.cs" />
+    <Compile Include="Models\TrackingStatement.cs" />
+    <Compile Include="Models\Waybill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\RegisterCustomerViewModel.cs" />
     <Compile Include="ViewModels\ShipmentsSearchViewModel.cs" />
     <Compile Include="ViewModels\ShipmentsListViewModel.cs" />
     <Compile Include="ViewModels\ShipmentsReportViewModel.cs" />
+    <Compile Include="ViewModels\TrackingListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -374,6 +377,7 @@
     <Content Include="Views\PickupLocations\Details.cshtml" />
     <Content Include="Views\PickupLocations\Edit.cshtml" />
     <Content Include="Views\PickupLocations\Index.cshtml" />
+    <Content Include="Views\Shipments\TrackShipment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

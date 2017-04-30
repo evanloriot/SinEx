@@ -169,6 +169,23 @@ namespace SinExWebApp20444290.Controllers
             return new SelectList(shippingAccountQuery);
         }
 
+        public ActionResult TrackShipment(int? WaybillID)
+        {
+            if(WaybillID == null)
+            {
+                return View();
+            }
+
+
+
+            return View();
+        }
+
+        public ActionResult MakeShipment()
+        {
+            return View();
+        }
+
 
         // GET: Shipments/Details/5
         public ActionResult Details(int? id)

@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SinExWebApp20444290.Models;
 using SinExWebApp20444290.ViewModels;
+using System.Net.Mail;
 
 namespace SinExWebApp20444290.Controllers
 {
@@ -189,6 +190,17 @@ namespace SinExWebApp20444290.Controllers
                         // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                         // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                         // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                        //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                        //smtpClient.Credentials = new System.Net.NetworkCredential("sinexsmtp@gmail.com", "MyPassword123");
+                        //smtpClient.UseDefaultCredentials = true;
+                        //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        //smtpClient.EnableSsl = true;
+                        //MailMessage mail = new MailMessage();
+                        //mail.From = new MailAddress("sinexsmtp@gmail.com");
+                        //MailAddress a = model.PersonalInformation != null ? new MailAddress(model.PersonalInformation.Email) : new MailAddress(model.BusinessInformation.Email);
+                        //mail.To.Add(a);
+                        //smtpClient.Send(mail);
 
                         return RedirectToAction("Index", "Home");
                     }
