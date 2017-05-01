@@ -202,6 +202,23 @@ namespace SinExWebApp20444290.Controllers
                         //mail.To.Add(a);
                         //smtpClient.Send(mail);
 
+
+                        //// Create an instance of MailMessage named mail.
+                        //MailMessage mail = new MailMessage();
+
+                        //// Create an instance of SmtpClient named emailServer.
+                        //// Set the mail server to use as "smtp.ust.hk".
+                        //SmtpClient emailServer = new SmtpClient("smtp.ust.hk");
+
+                        //// Set the sender (From), receiver (To), subject and 
+                        //// message body fields of the mail message.
+                        //mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "Tris");
+                        //mail.To.Add("tgavrel@gmail.com");
+                        //mail.Subject = "Test";
+                        //mail.Body = "Hello world";
+
+                        //// Send the message.
+                        //emailServer.Send(mail);
                         return RedirectToAction("Index", "Home");
                     }
                     else
