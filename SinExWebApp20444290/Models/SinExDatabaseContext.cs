@@ -43,5 +43,7 @@ namespace SinExWebApp20444290.Models
         public System.Data.Entity.DbSet<SinExWebApp20444290.Models.Recipient> Recipients { get; set; }
 
         public System.Data.Entity.DbSet<SinExWebApp20444290.Models.PickupLocation> PickupLocations { get; set; }
+
+        public System.Data.Entity.DbSet<SinExWebApp20444290.Models.Invoice> Invoices { get; set; }
     }
 }
