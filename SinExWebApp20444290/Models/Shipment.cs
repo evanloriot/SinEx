@@ -11,17 +11,79 @@ namespace SinExWebApp20444290.Models
     public class Shipment
     {
         [Key]
+        [Display(Name = "Waybill Number")]
         public virtual int WaybillID { get; set; }
+        [Required]
+        [Display(Name = "Ref Number")]
         public string ReferenceNumber { get; set; }
         public string ServiceType { get; set; }
+        [Display(Name = "Shipped date")]
         public DateTime ShippedDate { get; set; }
+        [Display(Name = "Delivery date")]
         public DateTime DeliveredDate { get; set; }
+        [Display(Name = "Delivery at")]
+        public string DeliveredAt { get; set; }
         public string RecipientName { get; set; }
+        [Required]
+        [Display(Name = "Number of Packages")]
         public int NumberOfPackages { get; set; }
+        [Required]
+        [Display(Name = "Origin")]
         public string Origin { get; set; }
+        [Required]
+        [Display(Name = "Destination")]
         public string Destination { get; set; }
         public string Status { get; set; }
         public int ShippingAccountID { get; set; }
+        public virtual ICollection<PackageType> PackageTypes { get; set; }
         public ICollection<ShippingAccount> ShippingAccount { get; set; }
+
+
+        [Display(Name ="Recipient Shipping Account")]
+        public virtual int RecipientShippingAccountID { get; set; }
+        [Display(Name = "Sender Shipping Account")]
+        public virtual int SenderShippingAccountID { get; set; }
+        [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
+        public virtual DateTime? PickupDate { get; set; }
+
+
+        [Required]
+        [Display(Name = "Tax and duty payer")]
+        public virtual bool TaxPayer { get; set; }
+        [Required]
+        [Display(Name = "Shipment Payer")]
+        public virtual bool ShipmentPayer { get; set; }
+        public virtual decimal? Duty { get; set; }
+        public virtual decimal? Tax { get; set; }
+        [Display(Name = "Estimated total shipment cost")]
+        public virtual decimal EstimatedShipmentTotalAmount { get; set; }
+        [Display(Name = "Actual total shipment cost")]
+        public virtual decimal ShipmentTotalAmount { get; set; }
+        [Display(Name = "Shipment confirmed")]
+        public virtual bool ShipmentConfirm { get; set; }
+        [Display(Name = "Shipment picked up")]
+        public virtual bool Pickup { get; set; }
+        [Display(Name = "Shipment canceled")]
+        public virtual bool Canceled { get; set; }
+        [Display(Name = "Shipment delivered")]
+        public virtual bool Delivered { get; set; }
+
+
+
+        //Recipient
+        [Required]
+        [Display(Name = "First Name")]
+        [StringLength(35)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "First name may only contain letters.")]
+        public virtual string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        [StringLength(35)]
+        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Last name may only contain letters.")]
+        public virtual string LastName { get; set; }
+
+
+
     }
 }
