@@ -68,23 +68,5 @@ namespace SinExWebApp20444290.Models
         public virtual bool Canceled { get; set; }
         [Display(Name = "Shipment delivered")]
         public virtual bool Delivered { get; set; }
-
-
-
-        //Recipient
-        [Required]
-        [Display(Name = "First Name")]
-        [StringLength(35)]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "First name may only contain letters.")]
-        public virtual string FirstName { get; set; }
-
-        [Required]
-        [Display(Name = "Last Name")]
-        [StringLength(35)]
-        [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Last name may only contain letters.")]
-        public virtual string LastName { get; set; }
-
-
-
     }
 }
