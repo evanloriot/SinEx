@@ -17,14 +17,7 @@ namespace SinExWebApp20444290.Controllers
         private SinExDatabaseContext db = new SinExDatabaseContext();
 
 
-        private SelectList PopulateShippingAccountsDropdownList()
-        {
-            // TODO: Construct the LINQ query to retrieve the unique list of shipping account ids.
-            var shippingAccountQuery = db.Invoices.Select(s => s.UserName).Distinct().OrderBy(s => s);
-            var hehe = db.ShippingAccounts.Where(m => shippingAccountQuery.Contains(m.UserName)).Select(m => m.ShippingAccountID).Distinct().OrderBy(m => m);
 
-            return new SelectList(hehe);
-        }
 
 
         //Get : Payments/GeneratePaymentHistory
@@ -71,8 +64,11 @@ namespace SinExWebApp20444290.Controllers
 
 
             // Populate the ShippingAccountId dropdown list.
+            var shippingAccountQuery = db.Invoices.Select(s => s.UserName).Distinct().OrderBy(s => s);
+            var hehe = db.ShippingAccounts.Where(m => shippingAccountQuery.Contains(m.UserName)).Select(m => m.ShippingAccountID).Distinct().OrderBy(m => m);
 
-            var n = PopulateShippingAccountsDropdownList().ToList();
+
+            var n = (new SelectList(hehe)).ToList() ;
             foreach (SelectListItem k in n)
             {
                 k.Value = k.Text;

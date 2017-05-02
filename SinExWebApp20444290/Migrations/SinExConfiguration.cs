@@ -145,6 +145,25 @@ namespace SinExWebApp20444290.Migrations
                 new PackageTypeSize { Description = "(Size: large - 500x450x350mm; Weight limit: 30kg)", PackageTypeID = 4 }
             );
 
+            // Add invoice 
+            context.Invoices.AddOrUpdate(
+                p=>p.PaymentID,
+                new Invoice
+
+                {AuthorizationCode="13",
+                    WaybillID=25,
+                    PaymentAmount=13,
+                    CurrencyCode="BY",
+                    UserName="ejloriot",
+                    PayerCharacter="Loriot",
+                    PaymentDescription="Good description",
+                    PaymentID=1
+
+                }
+
+
+                );
+
             //// Add shipment data.
             //context.Shipments.AddOrUpdate(
             //    p => p.WaybillID,
