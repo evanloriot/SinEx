@@ -5,6 +5,7 @@ namespace SinExWebApp20444290.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Collections.Generic;
 
     internal sealed class SinExConfiguration : DbMigrationsConfiguration<SinExWebApp20444290.Models.SinExDatabaseContext>
     {
@@ -173,6 +174,55 @@ namespace SinExWebApp20444290.Migrations
                 new Shipment { WaybillID = 24, ReferenceNumber = "", ServiceType = "Ground", ShippedDate = new DateTime(2017, 01, 15), DeliveredDate = new DateTime(2017, 01, 19), RecipientName = "Peter Pang", NumberOfPackages = 3, Origin = "Beijing", Destination = "Lhasa", Status = "Delivered", ShippingAccountID = 2 },
                 new Shipment { WaybillID = 25, ReferenceNumber = "386456", ServiceType = "Same Day", ShippedDate = new DateTime(2017, 01, 05), DeliveredDate = new DateTime(2017, 01, 05), RecipientName = "Jerry Jia", NumberOfPackages = 1, Origin = "Beijing", Destination = "Hangzhou", Status = "Delivered", ShippingAccountID = 2 }
             );
+
+            context.Shipments.AddOrUpdate(
+                p => p.WaybillID,
+                new Shipment
+                {
+                    WaybillID = 26,
+                    ReferenceNumber = "",
+                    ServiceType = "Next Day 15:00",
+                    ShippedDate = new DateTime(2017, 1, 5, 20, 30, 0),
+                    DeliveredDate = new DateTime(2017, 1, 6, 13, 20, 0),
+                    RecipientName = "J. Wong",
+                    DeliveredAt = "Reception desk",
+                    NumberOfPackages = 2,
+                    Origin = "Tsim Sha Tsui",
+                    Destination = "Shanghai",
+                    Status = "Delivered",
+                    ShippingAccountID = 6
+                }
+            );
+
+            context.Packages.AddOrUpdate(
+                p => p.PackageID,
+                new Package
+                {
+                    PackageID = 1,
+                    WaybillID = 26,
+                    PackageType = "Envelope",
+                    Weight = 0.1M
+                },
+                new Package
+                {
+                    PackageID = 2,
+                    WaybillID = 26,
+                    PackageType = "Tube",
+                    Weight = 0.5M
+                }
+            );
+
+            context.TrackingStatements.AddOrUpdate(
+                p => p.TrackingID,
+                new TrackingStatement { WaybillID = 26, DateTime = new DateTime(2017, 1, 6, 13, 20, 0), Description = "Delivered", Location = "Shanghai", Remarks = "" },
+                new TrackingStatement { WaybillID = 26, DateTime = new DateTime(2017, 1, 6, 12, 00, 0), Description = "On vehicle for delivery", Location = "Shanghai", Remarks = "Vehicle 100023" },
+                new TrackingStatement { WaybillID = 26, DateTime = new DateTime(2017, 1, 6, 11, 30, 0), Description = "At local sort facility", Location = "Pudong", Remarks = "Waiting for customs clearance" },
+                new TrackingStatement { WaybillID = 26, DateTime = new DateTime(2017, 1, 6, 7, 30, 0), Description = "Left origin", Location = "Hong Kong", Remarks = "Dragonair KA215" },
+                new TrackingStatement { WaybillID = 26, DateTime = new DateTime(2017, 1, 5, 23, 15, 0), Description = "At local sort facility", Location = "Tsung Chung", Remarks = "" },
+                new TrackingStatement { WaybillID = 26, DateTime = new DateTime(2017, 1, 5, 20, 30, 0), Description = "Picked up", Location = "Tsim Sha Tsui", Remarks = "Vehicle 000067" }
+            );
+
+
 
         }
     }
