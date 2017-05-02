@@ -27,22 +27,14 @@ namespace SinExWebApp20444290.Models
         [Display(Name = "Currency")]
         public virtual string CurrencyCode { get; set; }
         [Required]
-        [Display(Name = "Declared Weight")]
+        [Display(Name = "Weight")]
         [Range(typeof(decimal), "0.1", "1000", ErrorMessage = "Out of bound")]
         [RegularExpression(@"^[0-9]*([.][0-9]{1})?$", ErrorMessage = "Please input a proper decimal number. One digit behind comma(eg. 12.4")]
-        public virtual decimal DeclaredWeight { get; set; }
-        [Display(Name = "Actual Weight")]
-        [Range(typeof(decimal), "0.1", "1000", ErrorMessage = "Out of bound")]
-        [RegularExpression(@"^[0-9]*([.][0-9]{1})?$", ErrorMessage = "Please input a proper decimal number. One digit behind comma(eg. 12.4")]
-        public virtual decimal? ActualWeight { get; set; }
-        [Display(Name = "Declared Fee")]
+        public virtual decimal? Weight { get; set; }
+        [Display(Name = "Fee")]
         [Range(typeof(decimal), "0.01", "1000000", ErrorMessage = "Out of bound")]
         [RegularExpression(@"^[0-9]*([.][0-9]{1,2})?$", ErrorMessage = "Please input a proper decimal number(eg. 12.45)")]
-        public virtual decimal DeclaredFee { get; set; }
-        [Display(Name = "Actual Fee")]
-        [Range(typeof(decimal), "0.01", "1000000", ErrorMessage = "Out of bound")]
-        [RegularExpression(@"^[0-9]*([.][0-9]{1,2})?$", ErrorMessage = "Please input a proper decimal number(eg. 12.45)")]
-        public virtual decimal? ActualFee { get; set; }
+        public virtual decimal? Fee { get; set; }
 
         [ForeignKey("WaybillID")]
         public virtual Shipment Shipment { get; set; }
