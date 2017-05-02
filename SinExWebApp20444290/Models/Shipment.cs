@@ -21,8 +21,9 @@ namespace SinExWebApp20444290.Models
         public DateTime ShippedDate { get; set; }
         [Display(Name = "Delivery date")]
         public DateTime DeliveredDate { get; set; }
-        [Display(Name = "Delivery at")]
+        [Display(Name = "Delivered at")]
         public string DeliveredAt { get; set; }
+        [Display(Name = "Delivered to")]
         public string RecipientName { get; set; }
         [Required]
         [Display(Name = "Number of Packages")]
@@ -35,7 +36,7 @@ namespace SinExWebApp20444290.Models
         public string Destination { get; set; }
         public string Status { get; set; }
         public int ShippingAccountID { get; set; }
-        public virtual ICollection<PackageType> PackageTypes { get; set; }
+        public virtual ICollection<Package> Packages { get; set; }
         public ICollection<ShippingAccount> ShippingAccount { get; set; }
 
 
