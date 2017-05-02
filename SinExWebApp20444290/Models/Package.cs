@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SinExWebApp20444290.Models
 {
+    [Table("Package")]
     public class Package
     {
         [Display(Name = "Package Shipping ID")]
