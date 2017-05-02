@@ -171,13 +171,70 @@ namespace SinExWebApp20444290.Controllers
 
         public ActionResult TrackShipment(int? WaybillID)
         {
+            ViewBag.ErrorText = "";
             if(WaybillID == null)
             {
                 return View();
             }
 
+            var shipmentSearch = new TrackingReportViewModel();
 
+            var q = from s in db.Shipments
+                    select new 
+                    {
+                        s.WaybillID,
+                        s.RecipientName,
+                        s.DeliveredAt,
+                        s.Status,
+                        s.ServiceType,
+                        s.Packages
+                    };
+            q = q.Where(s => s.WaybillID == WaybillID);
+            if(q.ToList().Count == 0)
+            {
+                ViewBag.ErrorText = "No results found.";
+                return View();
+            }
+            var list = q.ToList()[0];
+            Shipment shipment = new Shipment();
+            shipment.WaybillID = list.WaybillID;
+            shipment.RecipientName = list.RecipientName;
+            shipment.DeliveredAt = list.DeliveredAt;
+            shipment.Status = list.Status;
+            shipment.ServiceType = list.ServiceType;
+            shipment.Packages = list.Packages;
+            shipmentSearch.Shipment = shipment;
 
+            var t = from s in db.TrackingStatements
+                    select new 
+                    {
+                        s.WaybillID,
+                        s.DateTime,
+                        s.Description,
+                        s.Location,
+                        s.Remarks
+                    };
+            //t = t.Where(s => s.WaybillID == WaybillID).Distinct();
+            var holder = t.ToList();
+            List<TrackingStatement> trackingStatements = new List<TrackingStatement>();
+            TrackingStatement trackingStatement = new TrackingStatement();
+            for(int i = 0; i < holder.Count; i++)
+            {
+                trackingStatement = new TrackingStatement();
+                trackingStatement.DateTime = holder[i].DateTime;
+                trackingStatement.Description = holder[i].Description;
+                trackingStatement.Location = holder[i].Location;
+                trackingStatement.Remarks = holder[i].Remarks;
+                trackingStatements.Add(trackingStatement);
+            }
+
+            shipmentSearch.TrackingStatements = trackingStatements;
+
+            return View(shipmentSearch);
+        }
+
+        public ActionResult TrackingSystem(int? WaybillID)
+        {
             return View();
         }
 

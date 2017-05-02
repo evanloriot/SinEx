@@ -1,4 +1,6 @@
-﻿@{
+﻿@model SinExWebApp20444290.ViewModels.TrackingReportViewModel
+
+@{
     ViewBag.Title = "TrackShipment";
 }
 
@@ -8,12 +10,54 @@
 <input id="waybill" type="text" />
 <button onclick="submit()" style="color: black">Track</button>
 
+@if (Model != null && Model.Shipment != null)
+{
+    <table border="1" style="border: 1px solid white; margin-left: auto; margin-right: auto;">
+        <tr>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.Shipment.WaybillID): </b>
+                @Html.DisplayFor(model => model.Shipment.WaybillID)<br />
+                <b>@Html.DisplayNameFor(model => model.Shipment.RecipientName): </b>
+                @Html.DisplayFor(model => model.Shipment.RecipientName)<br />
+                <b>@Html.DisplayNameFor(model => model.Shipment.DeliveredAt): </b>
+                @Html.DisplayFor(model => model.Shipment.DeliveredAt)<br />
+                <b>@Html.DisplayNameFor(model => model.Shipment.Status): </b>
+                @Html.DisplayFor(model => model.Shipment.Status)<br />
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                <b>@Html.DisplayNameFor(model => model.Shipment.ServiceType):</b> 
+                @Html.DisplayFor(model => model.Shipment.ServiceType)<br />
+                <b>@Html.DisplayNameFor(model => model.Shipment.Packages): </b>
+                @foreach (var item in Model.Shipment.Packages)
+                {
+                    @Html.DisplayFor(i => item.PackageType)
+                    <span>&emsp;</span>
+                }
+                <br /><b>Weight:</b> 
+                @foreach(var item in Model.Shipment.Packages)
+                {
+                    @Html.DisplayFor(i => item.Weight)
+                    <span>&emsp;</span>
+                }
+            </td>
+        </tr>
+        @if (Model.TrackingStatements.Any())
+        {
+            @Html.Partial("_TrackingListPartial", Model.TrackingStatements)
+        }
+    </table>
+
+}
+else
+{
+    <p style="color: red;">@ViewBag.ErrorText</p>
+}
+
 <script>
     function submit() {
-        window.location.href = "/Shipments/TrackShipment/" +
+        window.location.href = "/Shipments/TrackShipment?WaybillID=" +
             document.getElementById("waybill").value;
     }
 </script>
-
-@Html.Partial("_TrackingListPartial")
-

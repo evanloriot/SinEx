@@ -47,6 +47,10 @@
             <td>
                 @foreach (var item in Model.Where(n => n.PackageTypeID == 1 && n.ServiceTypeID == i))
                 {
+                    if (@User.IsInRole("Employee"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ServiceTypeID }) <span>&nbsp;</span>
+                    }
                     @Html.DisplayFor(modelItem => item.ServiceType.Type)
                 }
             </td>

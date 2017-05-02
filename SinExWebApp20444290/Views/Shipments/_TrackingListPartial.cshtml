@@ -1,0 +1,37 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.TrackingStatement>
+
+@if (Model != null && Model.Any())
+{
+    <tr>
+        <th><b style="text-decoration: underline">Date</b>/th>
+        <th><b style="text-decoration: underline">Time</b></th>
+        <th>
+            <b style="text-decoration: underline">@Html.DisplayNameFor(model => model.Location)</b>
+        </th>
+        <th>
+            <b style="text-decoration: underline">@Html.DisplayNameFor(model => model.Remarks)</b>
+        </th>
+    </tr>
+    DateTime date = new DateTime();
+    foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @if (item.DateTime.ToString("dd/mm/yyyy") != date.ToString("dd/mm/yyyy"))
+                {
+                    @item.DateTime.ToString("dd/mm/yyyy")
+                }
+                @{ date = item.DateTime; }
+            </td>
+            <td>
+                @item.DateTime.ToString("HH:mm")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+        </tr>
+    }
+}

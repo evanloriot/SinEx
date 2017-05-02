@@ -5,6 +5,12 @@
 }
 
 <h2>Cities Served</h2>
+@if (User.IsInRole("Employee"))
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
