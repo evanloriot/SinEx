@@ -37,6 +37,8 @@ namespace SinExWebApp20444290.Models
         public int ShippingAccountID { get; set; }
         public virtual ICollection<Package> Packages { get; set; }
         public ICollection<ShippingAccount> ShippingAccount { get; set; }
+        [Display(Name = "Service Type")]
+        public virtual int ServiceTypeID { get; set; }
 
 
         [Display(Name ="Recipient Shipping Account")]

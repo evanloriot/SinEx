@@ -29,6 +29,8 @@ namespace SinExWebApp20444290.Models
         public virtual decimal? Weight { get; set; }
         [Display(Name = "Fee")]
         public virtual decimal? Fee { get; set; }
+        [Display(Name = "Service Type")]
+        public virtual int ServiceTypeID { get; set; }
 
         [ForeignKey("WaybillID")]
         public virtual Shipment Shipment { get; set; }

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.Package>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>
+    Packages for shipment (Waybill ID: <a href="/Shipments/Details/@ViewBag.Waybillid">@ViewBag.Waybillid.ToString("0000000000000000")</a>)
+</h2>
+
+
+<p>
+    <a href="/Shipments/Details/@ViewBag.Waybillid">Back to shipment</a> |
+    @Html.ActionLink("Add one more package for this shipment", "Create", new { WaybillId = ViewBag.Waybillid })
+</p>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.PackageType.Type)
+        </th>	
+	<th>
+            Size
+        </th>
+	<th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+	<th>
+            Currency
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fee)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageType.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PackageTypeSize.TypeSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Currency.CurrencyCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @item.DeclaredWeight.ToString("F1")
+            </td>
+            <td>
+                @if (item.ActualWeight != null)
+                {
+                    @item.ActualWeight.Value.ToString("F1")
+                }
+            </td>
+            <td>
+                ¥ @Html.DisplayFor(modelItem => item.DeclaredFee)
+            </td>
+            <td>
+                @if (item.ActualFee != null)
+                {
+                    <text>¥</text>
+                }
+                @Html.DisplayFor(modelItem => item.ActualFee)
+            </td>
+            <td>
+                @if (item.Shipment.CancelledOrNot == false && item.Shipment.ConfirmOrNot == false)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PackageID }) <text>|</text>
+                    @Html.ActionLink("Details", "Details", new { id = item.PackageID }) <text>|</text>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PackageID })
+                }
+                else
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.PackageID })
+                }
+
+            </td>
+            <td></td>
+
+        </tr>
+    }
+
+</table>
