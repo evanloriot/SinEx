@@ -214,7 +214,7 @@ namespace SinExWebApp20444290.Controllers
                         s.Location,
                         s.Remarks
                     };
-            //t = t.Where(s => s.WaybillID == WaybillID).Distinct();
+            t = t.Where(s => s.WaybillID == WaybillID).Distinct();
             var holder = t.ToList();
             List<TrackingStatement> trackingStatements = new List<TrackingStatement>();
             TrackingStatement trackingStatement = new TrackingStatement();
@@ -235,7 +235,197 @@ namespace SinExWebApp20444290.Controllers
 
         public ActionResult TrackingSystem(int? WaybillID)
         {
+            var q = from s in db.TrackingStatements
+                    select new
+                    {
+                        s.WaybillID,
+                        s.DateTime,
+                        s.Description,
+                        s.Location,
+                        s.Remarks
+                    };
+            var holder = q.ToList();
+            List<TrackingStatement> tss = new List<TrackingStatement>();
+            foreach(var item in holder)
+            {
+                TrackingStatement ts = new TrackingStatement();
+                ts.WaybillID = item.WaybillID;
+                ts.DateTime = item.DateTime;
+                ts.Description = item.Description;
+                ts.Location = item.Location;
+                ts.Remarks = item.Remarks;
+                tss.Add(ts);
+            }
+            return View(tss);
+        }
+
+        public ActionResult TrackingSystemCreate()
+        {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TrackingSystemCreate([Bind(Include = "WaybillID,DateTime,Description,Location,Remarks")] TrackingStatement ts)
+        {
+            if (ModelState.IsValid)
+            {
+                db.TrackingStatements.Add(ts);
+                db.SaveChanges();
+                return RedirectToAction("TrackingSystem");
+            }
+
+            return View(ts);
+        }
+
+        public ActionResult TrackingSystemStatus()
+        {
+            var q = from s in db.Shipments
+                    select new
+                    {
+                        s.WaybillID,
+                        s.RecipientName,
+                        s.DeliveredAt,
+                        s.Status
+                    };
+            var holder = q.ToList();
+            List<Shipment> ss = new List<Shipment>();
+            foreach(var item in holder)
+            {
+                Shipment s = new Shipment();
+                s.WaybillID = item.WaybillID;
+                s.RecipientName = item.RecipientName;
+                s.DeliveredAt = item.DeliveredAt;
+                s.Status = item.Status;
+                ss.Add(s);
+            }
+
+            return View(ss);
+        }
+
+        public ActionResult TrackingSystemStatusEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Shipment shipment = db.Shipments.Find(id);
+            if (shipment == null)
+            {
+                return HttpNotFound();
+            }
+            return View(shipment);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult TrackingSystemStatusEdit([Bind(Include = "RecipientName,DeliveredAt,Status")] Shipment shipment)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(shipment).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("TrackingSystemStatus");
+            }
+            return View(shipment);
+        }
+
+        public ActionResult EmployeeShipment()
+        {
+            var q = from s in db.Shipments
+                    select new
+                    {
+                        s.WaybillID,
+                        s.Duty,
+                        s.Tax
+                    };
+            var holder = q.ToList();
+            List<Shipment> ss = new List<Shipment>();
+            foreach(var item in holder)
+            {
+                Shipment s = new Shipment();
+                s.WaybillID = item.WaybillID;
+                s.Duty = item.Duty;
+                s.Tax = item.Tax;
+                ss.Add(s);
+            }
+
+            return View(ss);
+        }
+
+        public ActionResult EmployeeShipmentEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Shipment shipment = db.Shipments.Find(id);
+            if (shipment == null)
+            {
+                return HttpNotFound();
+            }
+            return View(shipment);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeShipmentEdit([Bind(Include = "Duty,Tax")] Shipment shipment)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(shipment).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("EmployeeShipment");
+            }
+            return View(shipment);
+        }
+
+        public ActionResult EmployeePackage()
+        {
+            var q = from s in db.Packages
+                    select new
+                    {
+                        s.WaybillID,
+                        s.Weight
+                    };
+            var holder = q.ToList();
+            List<Package> ps = new List<Package>();
+            foreach (var item in holder)
+            {
+                Package p = new Package();
+                p.WaybillID = item.WaybillID;
+                p.Weight = item.Weight;
+                ps.Add(p);
+            }
+
+            return View(ps);
+        }
+
+        public ActionResult EmployeePackageEdit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Package package = db.Packages.Find(id);
+            if (package == null)
+            {
+                return HttpNotFound();
+            }
+            return View(package);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeePackageEdit([Bind(Include = "Weight")] Package package)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(package).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("EmployeePackage");
+            }
+            return View(package);
         }
 
         public ActionResult MakeShipment()

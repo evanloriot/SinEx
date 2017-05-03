@@ -260,6 +260,14 @@
     <Compile Include="ViewModels\TrackingReportViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-SinExWebApp20444290-20170203101548.mdf" />
+    <Content Include="App_Data\aspnet-SinExWebApp20444290-20170203101548_log.ldf">
+      <DependentUpon>aspnet-SinExWebApp20444290-20170203101548.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\SinExDatabaseContext-20170210104955.mdf" />
+    <Content Include="App_Data\SinExDatabaseContext-20170210104955_log.ldf">
+      <DependentUpon>SinExDatabaseContext-20170210104955.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -393,9 +401,17 @@
     <Content Include="Views\Invoices\_PaymentReportViewPagingPartial.cshtml" />
     <Content Include="Views\Invoices\PaymentSearchPartial.cshtml" />
     <Content Include="Views\Invoices\GeneratePaimentHistoryReport.cshtml" />
+    <Content Include="Views\Shipments\_TrackingListPartial.cshtml" />
+    <Content Include="Views\Shipments\TrackingSystem.cshtml" />
+    <Content Include="Views\Shipments\TrackingSystemCreate.cshtml" />
+    <Content Include="Views\Shipments\TrackingSystemStatus.cshtml" />
+    <Content Include="Views\Shipments\TrackingSystemStatusEdit.cshtml" />
+    <Content Include="Views\Shipments\EmployeeShipment.cshtml" />
+    <Content Include="Views\Shipments\EmployeeShipmentEdit.cshtml" />
+    <Content Include="Views\Shipments\EmployeePackage.cshtml" />
+    <Content Include="Views\Shipments\EmployeePackageEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>

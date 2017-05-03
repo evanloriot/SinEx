@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.Package>
+
+@{
+    ViewBag.Title = "EmployeePackage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EmployeePackage</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WaybillID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WaybillID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weight)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EmployeePackageEdit", new { id=item.PackageID })
+        </td>
+    </tr>
+}
+
+</table>

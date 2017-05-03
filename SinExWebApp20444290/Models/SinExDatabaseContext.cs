@@ -20,6 +20,26 @@ namespace SinExWebApp20444290.Models
         }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.Shipment)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.PackageType)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.PackageTypeSize)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.Currency)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
             Database.SetInitializer<SinExDatabaseContext>(null);
             base.OnModelCreating(modelBuilder);
         }

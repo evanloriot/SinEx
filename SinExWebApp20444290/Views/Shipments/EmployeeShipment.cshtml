@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.Shipment>
+
+@{
+    ViewBag.Title = "EmployeeShipment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee Shipment</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WaybillID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tax)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.WaybillID)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Duty)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.Tax)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EmployeeShipmentEdit", new { id=item.WaybillID })
+        </td>
+    </tr>
+}
+
+</table>
