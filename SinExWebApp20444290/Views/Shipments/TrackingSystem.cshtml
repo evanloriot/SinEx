@@ -27,24 +27,24 @@
             @Html.DisplayNameFor(model => model.Remarks)
         </th>
     </tr>
-    <tr>
         @foreach (var item in Model)
         {
-            <td>
-                @Html.DisplayFor(model => item.WaybillID)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.DateTime)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Location)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Remarks)
-            </td>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.WaybillID)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.DateTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Remarks)
+                </td>
+            </tr>
         }
-    </tr>
 </table>

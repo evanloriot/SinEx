@@ -266,7 +266,7 @@ namespace SinExWebApp20444290.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TrackingSystemCreate([Bind(Include = "WaybillID,DateTime,Description,Location,Remarks")] TrackingStatement ts)
+        public ActionResult TrackingSystemCreate([Bind(Include = "TrackingStatementID,WaybillID,DateTime,Description,Location,Remarks")] TrackingStatement ts)
         {
             if (ModelState.IsValid)
             {
@@ -286,7 +286,9 @@ namespace SinExWebApp20444290.Controllers
                         s.WaybillID,
                         s.RecipientName,
                         s.DeliveredAt,
-                        s.Status
+                        s.Status,
+                        s.Origin,
+                        s.Destination
                     };
             var holder = q.ToList();
             List<Shipment> ss = new List<Shipment>();
@@ -297,6 +299,8 @@ namespace SinExWebApp20444290.Controllers
                 s.RecipientName = item.RecipientName;
                 s.DeliveredAt = item.DeliveredAt;
                 s.Status = item.Status;
+                s.Origin = item.Origin;
+                s.Destination = item.Destination;
                 ss.Add(s);
             }
 
@@ -319,11 +323,14 @@ namespace SinExWebApp20444290.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TrackingSystemStatusEdit([Bind(Include = "RecipientName,DeliveredAt,Status")] Shipment shipment)
+        public ActionResult TrackingSystemStatusEdit([Bind(Include = "WaybillID,RecipientName,DeliveredAt,Status,Destination,Origin")] Shipment shipment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shipment).State = EntityState.Modified;
+                db.Shipments.Attach(shipment);
+                db.Entry(shipment).Property(x => x.RecipientName).IsModified = true;
+                db.Entry(shipment).Property(x => x.DeliveredAt).IsModified = true;
+                db.Entry(shipment).Property(x => x.Status).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("TrackingSystemStatus");
             }
@@ -369,11 +376,13 @@ namespace SinExWebApp20444290.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EmployeeShipmentEdit([Bind(Include = "Duty,Tax")] Shipment shipment)
+        public ActionResult EmployeeShipmentEdit([Bind(Include = "WaybillID,Duty,Tax,Origin,Destination")] Shipment shipment)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(shipment).State = EntityState.Modified;
+                db.Shipments.Attach(shipment);
+                db.Entry(shipment).Property(x => x.Duty).IsModified = true;
+                db.Entry(shipment).Property(x => x.Tax).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("EmployeeShipment");
             }
@@ -385,6 +394,7 @@ namespace SinExWebApp20444290.Controllers
             var q = from s in db.Packages
                     select new
                     {
+                        s.PackageID,
                         s.WaybillID,
                         s.Weight
                     };
@@ -393,6 +403,7 @@ namespace SinExWebApp20444290.Controllers
             foreach (var item in holder)
             {
                 Package p = new Package();
+                p.PackageID = item.PackageID;
                 p.WaybillID = item.WaybillID;
                 p.Weight = item.Weight;
                 ps.Add(p);
@@ -417,11 +428,12 @@ namespace SinExWebApp20444290.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EmployeePackageEdit([Bind(Include = "Weight")] Package package)
+        public ActionResult EmployeePackageEdit([Bind(Include = "PackageID,Weight")] Package package)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(package).State = EntityState.Modified;
+                db.Packages.Attach(package);
+                db.Entry(package).Property(x => x.Weight).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("EmployeePackage");
             }
