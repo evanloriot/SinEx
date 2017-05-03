@@ -10,6 +10,12 @@ namespace SinExWebApp20444290.Controllers
     public class BaseController : Controller
     {
         private SinExDatabaseContext db = new SinExDatabaseContext();
+
+        public static int AuthorizeCreditCard(string ccNumber, string ccSecurityNumber, decimal amount)
+        {
+            return new Random().Next(1000, 9999);
+        }
+
         // GET: Base
         public decimal convert(string currency, decimal amount)
         {

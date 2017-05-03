@@ -1,6 +1,50 @@
-﻿@{
+﻿@model IEnumerable<SinExWebApp20444290.Models.TrackingStatement>
+
+@{
     ViewBag.Title = "TrackingSystem";
 }
 
 <h2>Tracking System</h2>
+<p>
+    @Html.ActionLink("Create New", "TrackingSystemCreate")
+</p>
 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WaybillID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </th>
+    </tr>
+    <tr>
+        @foreach (var item in Model)
+        {
+            <td>
+                @Html.DisplayFor(model => item.WaybillID)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Remarks)
+            </td>
+        }
+    </tr>
+</table>

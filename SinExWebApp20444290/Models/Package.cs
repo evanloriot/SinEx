@@ -21,8 +21,6 @@ namespace SinExWebApp20444290.Models
         [Display(Name = "Description")]
         public virtual string Description { get; set; }
         [Display(Name = "Content Value")]
-        [Range(typeof(decimal), "0.01", "1000000", ErrorMessage = "Out of bound")]
-        [RegularExpression(@"^[0-9]*([.][0-9]{1,2})?$", ErrorMessage = "Please input a proper decimal number(eg. 12.45)")]
         public virtual decimal ContentValue { get; set; }
         [Display(Name = "Currency")]
         public virtual string CurrencyCode { get; set; }

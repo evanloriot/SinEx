@@ -103,7 +103,7 @@ namespace SinExWebApp20444290.Controllers
                 PaymentsListViewModel m = new PaymentsListViewModel();
                 Shipment ship = db.Shipments.SingleOrDefault(a => a.WaybillID == v.WaybillID);
                 m.WaybillId = v.WaybillID;
-                m.ShippingAccountId = v.PayerCharacter == "Recipient" ? ship.RecipientShippingAccountID : ship.SenderShippingAccountID;
+                m.ShippingAccountId = v.PayerCharacter == "Recipient" ? ship.RecipientShippingAccountID : ship.ShippingAccountID;
                 m.ShipDate = (DateTime)ship.PickupDate;
                 m.RecipientName = ship.RecipientName;
                 m.OriginCity = ship.Origin;

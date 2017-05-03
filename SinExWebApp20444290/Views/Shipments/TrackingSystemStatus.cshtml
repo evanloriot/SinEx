@@ -1,0 +1,47 @@
+﻿@model IEnumerable<SinExWebApp20444290.Models.Shipment>
+
+@{
+    ViewBag.Title = "TrackingSystemStatus";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Tracking System Status</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WaybillID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveredAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(model => item.WaybillID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliveredAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "TrackingSystemStatusEdit", new { id=item.WaybillID })
+        </td>
+    </tr>
+}
+
+</table>

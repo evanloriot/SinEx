@@ -18,7 +18,6 @@ namespace SinExWebApp20444290.Models
         public SinExDatabaseContext() : base("name=SinExDatabaseContext")
         {
         }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Package>()
@@ -40,7 +39,12 @@ namespace SinExWebApp20444290.Models
                         .HasRequired(f => f.Currency)
                         .WithMany()
                         .WillCascadeOnDelete(false);
+
+            Database.SetInitializer<SinExDatabaseContext>(null);
+            base.OnModelCreating(modelBuilder);
         }
+
+
         public System.Data.Entity.DbSet<SinExWebApp20444290.Models.PackageType> PackageTypes { get; set; }
 
         public System.Data.Entity.DbSet<SinExWebApp20444290.Models.ServiceType> ServiceTypes { get; set; }
