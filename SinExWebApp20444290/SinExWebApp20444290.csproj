@@ -399,8 +399,6 @@
     <Content Include="Views\Invoices\Index.cshtml" />
     <Content Include="Views\Invoices\_PaymentsListPartial.cshtml" />
     <Content Include="Views\Invoices\_PaymentReportViewPagingPartial.cshtml" />
-    <Content Include="Views\Invoices\PaymentSearchPartial.cshtml" />
-    <Content Include="Views\Invoices\GeneratePaimentHistoryReport.cshtml" />
     <Content Include="Views\Shipments\_TrackingListPartial.cshtml" />
     <Content Include="Views\Shipments\TrackingSystem.cshtml" />
     <Content Include="Views\Shipments\TrackingSystemCreate.cshtml" />
@@ -410,6 +408,8 @@
     <Content Include="Views\Shipments\EmployeeShipmentEdit.cshtml" />
     <Content Include="Views\Shipments\EmployeePackage.cshtml" />
     <Content Include="Views\Shipments\EmployeePackageEdit.cshtml" />
+    <Content Include="Views\Invoices\GeneratePaymentHistoryReport.cshtml" />
+    <Content Include="Views\Invoices\_PaymentSearchPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

@@ -13,7 +13,6 @@ namespace SinExWebApp20444290.Models
         [Key]
         [Display(Name = "Waybill Number")]
         public virtual int WaybillID { get; set; }
-        [Required]
         [Display(Name = "Ref Number")]
         public string ReferenceNumber { get; set; }
         public string ServiceType { get; set; }
@@ -42,8 +41,6 @@ namespace SinExWebApp20444290.Models
 
         [Display(Name ="Recipient Shipping Account")]
         public virtual int RecipientShippingAccountID { get; set; }
-        [Display(Name = "Sender Shipping Account")]
-        public virtual int SenderShippingAccountID { get; set; }
         [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
         public virtual DateTime? PickupDate { get; set; }
 
