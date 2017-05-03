@@ -14,5 +14,6 @@ namespace SinExWebApp20444290.Models
         public string Description { get; set; }
         public int PackageTypeID { get; set; }
         public PackageType PackageType { get; set; }
+        public string WeightLimit { get; set; }
     }
 }

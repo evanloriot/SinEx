@@ -35,6 +35,8 @@ namespace SinExWebApp20444290.Models
         [Range(typeof(decimal), "0.01", "1000000", ErrorMessage = "Out of bound")]
         [RegularExpression(@"^[0-9]*([.][0-9]{1,2})?$", ErrorMessage = "Please input a proper decimal number(eg. 12.45)")]
         public virtual decimal? Fee { get; set; }
+        [Display(Name = "Service Type")]
+        public virtual int ServiceTypeID { get; set; }
 
         [ForeignKey("WaybillID")]
         public virtual Shipment Shipment { get; set; }

@@ -33,6 +33,7 @@
                             <li>@Html.ActionLink("Service/Package Fees", "Index", "ServicePackageFees")</li>
                             <li>@Html.ActionLink("Estimate Cost", "EstimateCost", "ServicePackageFees")</li>
                             <li>@Html.ActionLink("Fees", "Index", "Currencies")</li>
+                            <li>@Html.ActionLink("Fee Calculator", "Index", "Calculate")</li>
                         </ul>
                     </li>
                     @if (Request.IsAuthenticated && !User.IsInRole("Employee"))

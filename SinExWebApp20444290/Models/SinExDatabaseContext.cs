@@ -18,13 +18,29 @@ namespace SinExWebApp20444290.Models
         public SinExDatabaseContext() : base("name=SinExDatabaseContext")
         {
         }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<SinExDatabaseContext>(null);
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.Shipment)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.PackageType)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.PackageTypeSize)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Package>()
+                        .HasRequired(f => f.Currency)
+                        .WithMany()
+                        .WillCascadeOnDelete(false);
         }
-
-
         public System.Data.Entity.DbSet<SinExWebApp20444290.Models.PackageType> PackageTypes { get; set; }
 
         public System.Data.Entity.DbSet<SinExWebApp20444290.Models.ServiceType> ServiceTypes { get; set; }

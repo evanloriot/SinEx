@@ -1183,3 +1183,175 @@ C:\Users\ejloriot\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Secu
 C:\Users\ejloriot\Source\Repos\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.csprojResolveAssemblyReference.cache
 C:\Users\ejloriot\Source\Repos\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.dll
 C:\Users\ejloriot\Source\Repos\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.pdb
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\ApplicationInsights.config
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\csc.exe
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\vbc.exe
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\VBCSCompiler.exe
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\SinExWebApp20444290.dll.config
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\SinExWebApp20444290.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\SinExWebApp20444290.pdb
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Antlr3.Runtime.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\EntityFramework.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\EntityFramework.SqlServer.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.Web.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.ApplicationInsights.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Newtonsoft.Json.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\nunit.framework.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Owin.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Helpers.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Mvc.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Optimization.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Razor.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Deployment.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Razor.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\WebGrease.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\X.PagedList.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\X.PagedList.Mvc.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.Web.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.ApplicationInsights.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\nunit.framework.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Helpers.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Mvc.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Optimization.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.Razor.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Deployment.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Razor.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Antlr3.Runtime.pdb
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Newtonsoft.Json.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\EntityFramework.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\EntityFramework.SqlServer.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.csprojResolveAssemblyReference.cache
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.dll
+C:\Users\tfmgavrel\Source\Repos\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.pdb
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.csprojResolveAssemblyReference.cache
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\obj\Debug\SinExWebApp20444290.pdb
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\ApplicationInsights.config
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\csc.exe
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\System.Collections.Immutable.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\System.Reflection.Metadata.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\vbc.exe
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\VBCSCompiler.exe
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\roslyn\VBCSCompiler.exe.config
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\SinExWebApp20444290.dll.config
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\SinExWebApp20444290.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\SinExWebApp20444290.pdb
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Antlr3.Runtime.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\EntityFramework.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\EntityFramework.SqlServer.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.Agent.Intercept.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.DependencyCollector.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.Web.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.WindowsServer.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.ApplicationInsights.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Core.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Cookies.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Facebook.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Google.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.OAuth.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Twitter.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Web.Infrastructure.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Newtonsoft.Json.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\nunit.framework.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Owin.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Helpers.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Mvc.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Optimization.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Razor.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Deployment.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Razor.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\WebGrease.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\X.PagedList.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\X.PagedList.Mvc.dll
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.DependencyCollector.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.Web.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AI.WindowsServer.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.ApplicationInsights.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\nunit.framework.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Helpers.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Mvc.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Optimization.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.Razor.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Deployment.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\System.Web.WebPages.Razor.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Antlr3.Runtime.pdb
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Newtonsoft.Json.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\EntityFramework.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\EntityFramework.SqlServer.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Core.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Facebook.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Cookies.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.OAuth.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Google.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.Twitter.xml
+F:\COMP 3111 Activity 3\SinEx\SinExWebApp20444290\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
