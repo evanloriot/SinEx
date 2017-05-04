@@ -13,6 +13,9 @@
             @Html.DisplayNameFor(model => model.WaybillID)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.PickupDate)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.RecipientName)
         </th>
         <th>
@@ -28,6 +31,9 @@
     <tr>
         <td>
             @Html.DisplayFor(model => item.WaybillID)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.PickupDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.RecipientName)
