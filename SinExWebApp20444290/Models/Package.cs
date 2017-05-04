@@ -27,6 +27,7 @@ namespace SinExWebApp20444290.Models
         [Required]
         [Display(Name = "Weight")]
         public virtual decimal? Weight { get; set; }
+        public virtual bool Weighed { get; set; }
         [Display(Name = "Fee")]
         public virtual decimal? Fee { get; set; }
         [Display(Name = "Service Type")]

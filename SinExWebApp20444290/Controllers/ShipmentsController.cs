@@ -384,6 +384,24 @@ namespace SinExWebApp20444290.Controllers
                 db.Entry(shipment).Property(x => x.Duty).IsModified = true;
                 db.Entry(shipment).Property(x => x.Tax).IsModified = true;
                 db.SaveChanges();
+
+                int waybillID = shipment.WaybillID;
+                var q = from s in db.Packages select s;
+                q = q.Where(x => x.WaybillID == waybillID);
+                var holder = q.ToList();
+                var weighed = true;
+                foreach(var item in holder)
+                {
+                    if (!item.Weighed)
+                    {
+                        weighed = false;
+                    }
+                }
+                if (weighed)
+                {
+                    new InvoicesController().CreateInvoice(waybillID);
+                }
+
                 return RedirectToAction("EmployeeShipment");
             }
             return View(shipment);
@@ -432,9 +450,21 @@ namespace SinExWebApp20444290.Controllers
         {
             if (ModelState.IsValid)
             {
+                package.Weighed = true;
                 db.Packages.Attach(package);
                 db.Entry(package).Property(x => x.Weight).IsModified = true;
+                db.Entry(package).Property(x => x.Weighed).IsModified = true;
                 db.SaveChanges();
+
+                int waybillID = package.WaybillID;
+                var q = from s in db.Shipments select s;
+                q = q.Where(x => x.WaybillID == waybillID);
+                bool payed = q.ToList()[0].Payed;
+                if (payed)
+                {
+                    new InvoicesController().CreateInvoice(waybillID);
+                }
+
                 return RedirectToAction("EmployeePackage");
             }
             return View(package);

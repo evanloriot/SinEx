@@ -212,8 +212,8 @@ namespace SinExWebApp20444290.Controllers
 
                         //// Set the sender (From), receiver (To), subject and 
                         //// message body fields of the mail message.
-                        //mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "Tris");
-                        //mail.To.Add("tgavrel@gmail.com");
+                        //mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "SinEx");
+                        //mail.To.Add("comp3111_team101@cse.ust.hk");
                         //mail.Subject = "Test";
                         //mail.Body = "Hello world";
 
