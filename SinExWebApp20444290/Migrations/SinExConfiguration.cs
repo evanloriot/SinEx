@@ -136,13 +136,13 @@ namespace SinExWebApp20444290.Migrations
             //Add package type size data.
             context.PackageTypeSizes.AddOrUpdate(
                 p => p.PackageTypeSizeID,
-                new PackageTypeSize { Description = "(Size: 250x350mm; Weight limit: Not Applicable)", PackageTypeID = 1 },
-                new PackageTypeSize { Description = "(Size: small - 350x400mm; Weight limit: 5kg)", PackageTypeID = 2 },
-                new PackageTypeSize { Description = "(Size: large - 450x550mm; Weight limit: 5kg)", PackageTypeID = 2 },
-                new PackageTypeSize { Description = "(Size: 1000x80mm; Weight limit: Not Applicable)", PackageTypeID = 3 },
-                new PackageTypeSize { Description = "(Size: small - 300x250x150mm; Weight limit: 10kg)", PackageTypeID = 4 },
-                new PackageTypeSize { Description = "(Size: medium - 400x350x250mm; Weight limit: 20kg)", PackageTypeID = 4 },
-                new PackageTypeSize { Description = "(Size: large - 500x450x350mm; Weight limit: 30kg)", PackageTypeID = 4 }
+                new PackageTypeSize { Description = "(Size: 250x350mm; Weight limit: Not Applicable)", PackageTypeID = 1, WeightLimit ="1000000" },
+                new PackageTypeSize { Description = "(Size: small - 350x400mm; Weight limit: 5kg)", PackageTypeID = 2, WeightLimit = "5" },
+                new PackageTypeSize { Description = "(Size: large - 450x550mm; Weight limit: 5kg)", PackageTypeID = 2, WeightLimit = "5" },
+                new PackageTypeSize { Description = "(Size: 1000x80mm; Weight limit: Not Applicable)", PackageTypeID = 3, WeightLimit = "1000000" },
+                new PackageTypeSize { Description = "(Size: small - 300x250x150mm; Weight limit: 10kg)", PackageTypeID = 4, WeightLimit = "10" },
+                new PackageTypeSize { Description = "(Size: medium - 400x350x250mm; Weight limit: 20kg)", PackageTypeID = 4, WeightLimit = "20" },
+                new PackageTypeSize { Description = "(Size: large - 500x450x350mm; Weight limit: 30kg)", PackageTypeID = 4, WeightLimit = "30" }
             );
 
             // Add shipment data.

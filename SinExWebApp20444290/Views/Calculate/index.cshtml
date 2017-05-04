@@ -36,47 +36,56 @@
                 @Html.ValidationMessageFor(a => a.currencyCode, "", new { @class = "text-danger" })
             </div>
 
-            <div>
-
-            </div>
             <h3>Packages</h3>
             <hr />
-            <div id="packageList">
-                @for (int i = 0; i < Model.packages.Count; i++)
-                {
-                    <div class="packageRow col-md-12">
+            @for (int i = 0; i < Model.packages.Count; i++)
+            {
+                @Html.LabelFor(a => a.packages[i].packageType, "Package Type: ", new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(a => a.packages[i].packageType, Model.param.packageTypes, "Please select...", new { @class = "form-control", Value = ViewBag.currentPackageType})
+                    @Html.ValidationMessageFor(a => a.packages[i].packageType, "", new { @class = "text-danger" })
+                </div>
 
-                        @Html.LabelFor(a => a.packages[i].packageType, "Package Type: ", new { @class = "control-label col-md-1" })
-                        <div class="col-md-2">
-                            @Html.DropDownListFor(a => a.packages[i].packageType, Model.param.packageTypes, "Please select...", new { @class = "form-control", Value = ViewBag.currentPackageType, id = "packageTypes_ddl", onchange = "+OnPackageTypesChange(this)", about = i })
-                            @Html.ValidationMessageFor(a => a.packages[i].packageType, "", new { @class = "text-danger" })
-                        </div>
+                @*@Html.LabelFor(a => a.packages[i].size, "Size: ", new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.DropDownListFor(a => a.packages[i].size, Model.param.sizes, "Please select...", new { @class = "form-control", Value = ViewBag.currentPackageSize })
+                    @Html.ValidationMessageFor(a => a.packages[i].size, "", new { @class = "text-danger" })
+                </div>*@
 
-                        @Html.LabelFor(a => a.packages[i].size, "Size: ", new { @class = "control-label col-md-1" })
-                        <div class="col-md-2">
-                            @Html.DropDownListFor(a => a.packages[i].size, Model.param.sizes, "Please select...", new { @class = "form-control", Value = ViewBag.currentPackageSize, id = "packageTypes_ddl", onchange = "+OnPackageTypesChange(this)", about = i })
-                            @Html.ValidationMessageFor(a => a.packages[i].size, "", new { @class = "text-danger" })
-                        </div>
+                @Html.LabelFor(a => a.packages[i].weight, "Weight(kg): ", new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(a => a.packages[i].weight, new { htmlAttributes = new { @class = "form-control", Value = ViewBag.currentWeight } })
+                    @Html.ValidationMessageFor(a => a.packages[i].weight, "", new { @class = "text-danger" })
+                </div>
 
-                        @Html.LabelFor(a => a.packages[i].weight, "Weight(kg): ", new { @class = "control-label col-md-1" })
-                        <div class="col-md-2">
-                            @Html.EditorFor(a => a.packages[i].weight, new { htmlAttributes = new { @class = "form-control", Value = ViewBag.currentWeight } })
-                            @Html.ValidationMessageFor(a => a.packages[i].weight, "", new { @class = "text-danger" })
-                        </div>
+                <div class="col-md-3">
+                    <i class="fa fa-2x fa-minus-circle remRow" style="color:red" aria-hidden="true"></i>
+                </div>
+            }
 
-                        <div class="col-md-3">
-                            <i class="fa fa-2x fa-minus-circle remRow" style="color:red" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                }
+            <h3>Recipient information</h3>
+            <hr />
+                @Html.LabelFor(a => a.RecipientName, "Recipient Name: ", new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(a => a.RecipientName, new { htmlAttributes = new { @class = "form-control", Value = ViewBag.recipientName } })
+                    @Html.ValidationMessageFor(a => a.RecipientName, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(a => a.RecipientAddress, "Recipient address: ", new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(a => a.RecipientAddress, new { htmlAttributes = new { @class = "form-control", Value = ViewBag.recipientAddress } })
+                    @Html.ValidationMessageFor(a => a.RecipientAddress, "", new { @class = "text-danger" })
+                </div>
+                @Html.LabelFor(a => a.RecipientEmail, "Recipient email: ", new { @class = "control-label col-md-4" })
+                <div class="col-md-8">
+                    @Html.EditorFor(a => a.RecipientEmail, new { htmlAttributes = new { @class = "form-control", Value = ViewBag.recipientEmail } })
+                    @Html.ValidationMessageFor(a => a.RecipientEmail, "", new { @class = "text-danger" })
+                </div>
+
+                <p>
+                    <i class="fa fa-2x fa-plus-circle addRow" style="color:deepskyblue" aria-hidden="true">Add package</i>
+                </p>
+
             </div>
-
-
-            <p>
-                <i class="fa fa-2x fa-plus-circle addRow" style="color:deepskyblue" aria-hidden="true">Add package</i>
-            </p>
-
-        </div>
         <input class="btn btn-primary" type="submit" value="Calculate" />
     </div>
 }

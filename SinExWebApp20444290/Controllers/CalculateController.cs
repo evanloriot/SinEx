@@ -37,24 +37,29 @@ namespace SinExWebApp20444290.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "packages,origin,destination,serviceType,currencyCode,param")] FeeViewModel Calculator){
-            if (ModelState.IsValid){
+        public ActionResult Index([Bind(Include = "packages,origin,destination,serviceType,currencyCode,param")] FeeViewModel Calculator)
+        {
+            if (ModelState.IsValid)
+            {
                 decimal exchangeRate = db.Currencies.Where(s => s.CurrencyCode == Calculator.currencyCode).Select(s => s.ExchangeRate).First();
-                foreach (FeePackageViewModel package in Calculator.packages){
-                    string limitString = db.PackageTypeSizes.Where(s => s.Description == package.size).Select(s => s).First().WeightLimit;
+                foreach (FeePackageViewModel package in Calculator.packages)
+                {
+                    string limitString = "1000000";
                     package.limit = limitString;
                     package.weight = Math.Round((decimal)package.weight, 1);
                     package.result = db.ServicePackageFees.SingleOrDefault(s => s.PackageType.Type == package.packageType && s.ServiceType.Type == Calculator.serviceType);
                     decimal fee = 0;
                     package.penalty = false;
-                    switch (package.result.PackageTypeID){
+                    switch (package.result.PackageTypeID)
+                    {
                         //Envelope
                         case 1:
                             fee = package.result.Fee;
                             break;
                         //Pak/Box
                         case 2:
-                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                            if (package.weight * package.result.Fee > package.result.MinimumFee)
+                            {
                                 fee = (decimal)package.weight * package.result.Fee;
                             }
                             else
@@ -63,25 +68,30 @@ namespace SinExWebApp20444290.Controllers
                             }
                             int limit = 0;
                             bool convertResult = Int32.TryParse(limitString.Substring(0, limitString.Length - 2), out limit);
-                            if (limit != 0 && convertResult == true && package.weight > (decimal)limit){
+                            if (limit != 0 && convertResult == true && package.weight > (decimal)limit)
+                            {
                                 fee += 500;
                                 package.penalty = true;
                             }
                             break;
                         //Tube
                         case 3:
-                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                            if (package.weight * package.result.Fee > package.result.MinimumFee)
+                            {
                                 fee = (decimal)package.weight * package.result.Fee;
                             }
-                            else{
+                            else
+                            {
                                 fee = package.result.MinimumFee;
                             }
                             break;
                         case 4:
-                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                            if (package.weight * package.result.Fee > package.result.MinimumFee)
+                            {
                                 fee = (decimal)package.weight * package.result.Fee;
                             }
-                            else{
+                            else
+                            {
                                 fee = package.result.MinimumFee;
                             }
                             int weightLimit = 0;
@@ -94,10 +104,12 @@ namespace SinExWebApp20444290.Controllers
                             break;
                         //Customer
                         case 5:
-                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                            if (package.weight * package.result.Fee > package.result.MinimumFee)
+                            {
                                 fee = (decimal)package.weight * package.result.Fee;
                             }
-                            else{
+                            else
+                            {
                                 fee = package.result.MinimumFee;
                             }
                             break;
