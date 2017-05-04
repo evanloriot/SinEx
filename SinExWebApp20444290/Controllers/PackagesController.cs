@@ -167,23 +167,51 @@ namespace SinExWebApp20444290.Controllers
                 case 1:
                     price = servicePackageFees.Fee;
                     break;
-                //Pak or Box
+                //Pack/Box
                 case 2:
-                case 4:
-                    price = Package.Weight * servicePackageFees.Fee > servicePackageFees.MinimumFee ? (decimal)Package.Weight * servicePackageFees.Fee : servicePackageFees.MinimumFee;
+                    if (Package.Weight * servicePackageFees.Fee > servicePackageFees.MinimumFee){
+                        price = (decimal)Package.Weight * servicePackageFees.Fee;
+                    }
+                    else{
+                        price = servicePackageFees.MinimumFee;
+                    }
                     int limit = 0;
                     string limitString = packageTypeSizes.WeightLimit;
                     bool convertResult = Int32.TryParse(limitString.Substring(0, limitString.Length - 2), out limit);
-                    if (limit != 0 && convertResult && Package.Weight > (decimal)limit)
-                    {
+                    if (limit != 0 && convertResult && Package.Weight > (decimal)limit){
                         price += 500;
                     }
-
                     break;
-                //Tube or Custmoer
+                case 4:
+                    if (Package.Weight * servicePackageFees.Fee > servicePackageFees.MinimumFee){
+                        price = (decimal)Package.Weight * servicePackageFees.Fee;
+                    }
+                    else{
+                        price = servicePackageFees.MinimumFee;
+                    }
+                    int weightLimit = 0;
+                    string limitInString = packageTypeSizes.WeightLimit;
+                    bool result = Int32.TryParse(limitInString.Substring(0, limitInString.Length - 2), out weightLimit);
+                    if (weightLimit != 0 && result && Package.Weight > (decimal)weightLimit){
+                        price += 500;
+                    }
+                    break;
+                //Tube or Customer
                 case 3:
+                    if (Package.Weight * servicePackageFees.Fee > servicePackageFees.MinimumFee){
+                        price = (decimal)Package.Weight * servicePackageFees.Fee;
+                    }
+                    else{
+                        price = servicePackageFees.MinimumFee;
+                    }
+                    break;
                 case 5:
-                    price = Package.Weight * servicePackageFees.Fee > servicePackageFees.MinimumFee ? (decimal)Package.Weight * servicePackageFees.Fee : servicePackageFees.MinimumFee;
+                    if (Package.Weight * servicePackageFees.Fee > servicePackageFees.MinimumFee){
+                        price = (decimal)Package.Weight * servicePackageFees.Fee;
+                    }
+                    else{
+                        price = servicePackageFees.MinimumFee;
+                    }
                     break;
             }
             return price;

@@ -37,48 +37,75 @@ namespace SinExWebApp20444290.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "packages,origin,destination,serviceType,currencyCode,param")] FeeViewModel Calculator)
-        {
-            if (ModelState.IsValid)
-            {
-                decimal rate = db.Currencies.Where(a => a.CurrencyCode == Calculator.currencyCode).Select(a => a.ExchangeRate).First();
-                foreach (FeePackageViewModel package in Calculator.packages)
-                {
-                    string limitString = db.PackageTypeSizes.Where(a => a.Description == package.size).Select(a => a).First().WeightLimit;
+        public ActionResult Index([Bind(Include = "packages,origin,destination,serviceType,currencyCode,param")] FeeViewModel Calculator){
+            if (ModelState.IsValid){
+                decimal exchangeRate = db.Currencies.Where(s => s.CurrencyCode == Calculator.currencyCode).Select(s => s.ExchangeRate).First();
+                foreach (FeePackageViewModel package in Calculator.packages){
+                    string limitString = db.PackageTypeSizes.Where(s => s.Description == package.size).Select(s => s).First().WeightLimit;
                     package.limit = limitString;
                     package.weight = Math.Round((decimal)package.weight, 1);
-                    package.result = db.ServicePackageFees.SingleOrDefault(a => a.PackageType.Type == package.packageType && a.ServiceType.Type == Calculator.serviceType);
-                    decimal price = 0;
+                    package.result = db.ServicePackageFees.SingleOrDefault(s => s.PackageType.Type == package.packageType && s.ServiceType.Type == Calculator.serviceType);
+                    decimal fee = 0;
                     package.penalty = false;
-                    switch (package.result.PackageTypeID)
-                    {
+                    switch (package.result.PackageTypeID){
                         //Envelope
                         case 1:
-                            price = package.result.Fee;
+                            fee = package.result.Fee;
                             break;
-                        //Pak or Box
+                        //Pak/Box
                         case 2:
-                        case 4:
-                            price = package.weight * package.result.Fee > package.result.MinimumFee ? (decimal)package.weight * package.result.Fee : package.result.MinimumFee;
-                            // weight limit
+                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                                fee = (decimal)package.weight * package.result.Fee;
+                            }
+                            else
+                            {
+                                fee = package.result.MinimumFee;
+                            }
                             int limit = 0;
                             bool convertResult = Int32.TryParse(limitString.Substring(0, limitString.Length - 2), out limit);
-                            if (limit != 0 && convertResult == true && package.weight > (decimal)limit)
-                            {
-                                price += 500;
+                            if (limit != 0 && convertResult == true && package.weight > (decimal)limit){
+                                fee += 500;
                                 package.penalty = true;
                             }
                             break;
                         //Tube
                         case 3:
-                            price = package.weight * package.result.Fee > package.result.MinimumFee ? (decimal)package.weight * package.result.Fee : package.result.MinimumFee;
+                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                                fee = (decimal)package.weight * package.result.Fee;
+                            }
+                            else{
+                                fee = package.result.MinimumFee;
+                            }
+                            break;
+                        case 4:
+                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                                fee = (decimal)package.weight * package.result.Fee;
+                            }
+                            else{
+                                fee = package.result.MinimumFee;
+                            }
+                            int weightLimit = 0;
+                            bool ConvertResult = Int32.TryParse(limitString.Substring(0, limitString.Length - 2), out weightLimit);
+                            if (weightLimit != 0 && ConvertResult == true && package.weight > (decimal)weightLimit)
+                            {
+                                fee += 500;
+                                package.penalty = true;
+                            }
                             break;
                         //Customer
                         case 5:
-                            price = package.weight * package.result.Fee > package.result.MinimumFee ? (decimal)package.weight * package.result.Fee : package.result.MinimumFee;
+                            if (package.weight * package.result.Fee > package.result.MinimumFee){
+                                fee = (decimal)package.weight * package.result.Fee;
+                            }
+                            else{
+                                fee = package.result.MinimumFee;
+                            }
+                            break;
+                        default:
+                            fee = 0;
                             break;
                     }
-                    package.fee = price * rate;
+                    package.fee = fee * exchangeRate;
                 }
                 return View("Result", Calculator);
             }
