@@ -290,8 +290,7 @@ namespace SinExWebApp20444290.Controllers
                         s.Origin,
                         s.Destination,
                         s.recipientEmail,
-                        s.recipientAddress
-                        s.Destination,
+                        s.recipientAddress,
                         s.PickupDate
                     };
             var holder = q.ToList();

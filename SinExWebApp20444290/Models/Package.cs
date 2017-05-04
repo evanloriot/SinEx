@@ -24,7 +24,6 @@ namespace SinExWebApp20444290.Models
         public virtual decimal ContentValue { get; set; }
         [Display(Name = "Currency")]
         public virtual string CurrencyCode { get; set; }
-        [Required]
         [Display(Name = "Weight")]
         public virtual decimal? Weight { get; set; }
         public virtual bool Weighed { get; set; }

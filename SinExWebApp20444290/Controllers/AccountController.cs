@@ -220,7 +220,7 @@ namespace SinExWebApp20444290.Controllers
 
                         //// Send the message.
                         //emailServer.Send(mail);
-                        //return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Home");
                     }
                     else
                     {

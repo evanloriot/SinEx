@@ -103,7 +103,7 @@ namespace SinExWebApp20444290.Controllers
             foreach (Invoice v in db.Invoices)
             {
                 PaymentsListViewModel m = new PaymentsListViewModel();
-                Shipment ship = db.Shipments.SingleOrDefault(a => a.WaybillID == v.WaybillID);
+                Shipment ship = db.Shipments.Where(a => a.WaybillID == v.WaybillID).First();
                 m.WaybillId = v.WaybillID;
                 m.ShippingAccountId = v.PayerCharacter == "Recipient" ? ship.RecipientShippingAccountID : ship.ShippingAccountID;
                 m.ShipDate = (DateTime)ship.PickupDate;

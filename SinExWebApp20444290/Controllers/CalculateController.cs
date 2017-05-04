@@ -23,12 +23,12 @@ namespace SinExWebApp20444290.Controllers
             Calculator.param.packageTypes = PopulatePackageTypesDropdownlist().ToList();
             Calculator.param.serviceTypes = PopulateServiceTypesDropdownlist().ToList();
             Calculator.param.currencies = PopulateCurrenciesDropdownlist().ToList();
-            Calculator.param.sizes = PopulatePackageTypeSizesDropdownlist().ToList();
+            //Calculator.param.sizes = PopulatePackageTypeSizesDropdownlist().ToList();
             Calculator.packages = new List<FeePackageViewModel>();
             Calculator.packages.Add(new FeePackageViewModel());
             //populate size dropdownlist
 
-            //Calculator.param.sizes = new List<SelectListItem>();
+            Calculator.param.sizes = PopulatePackageTypeSizesDropdownlist();
             return View(Calculator);
         }
 
@@ -128,7 +128,8 @@ namespace SinExWebApp20444290.Controllers
             Calculator.param.packageTypes = PopulatePackageTypesDropdownlist().ToList();
             Calculator.param.serviceTypes = PopulateServiceTypesDropdownlist().ToList();
             Calculator.param.currencies = PopulateCurrenciesDropdownlist().ToList();
-            Calculator.param.sizes = PopulatePackageTypeSizesDropdownlist().ToList();
+            //Calculator.param.sizes = PopulatePackageTypeSizesDropdownlist().ToList();
+            Calculator.param.sizes = PopulatePackageTypeSizesDropdownlist();
 
             return View("Index", Calculator);
         }
@@ -153,8 +154,8 @@ namespace SinExWebApp20444290.Controllers
 
         private SelectList PopulatePackageTypeSizesDropdownlist()
         {
-            //var query = db.PackageTypeSizes.Where(a => a.PackageType.Size).Select(a => a.Description);
-            return new SelectList("");
+            var query = db.PackageTypeSizes.Select(a => a.Description);
+            return new SelectList(query);
         }
 
         private SelectList PopulateCurrenciesDropdownlist()
