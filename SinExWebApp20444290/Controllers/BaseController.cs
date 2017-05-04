@@ -16,6 +16,17 @@ namespace SinExWebApp20444290.Controllers
             return new Random().Next(1000, 9999);
         }
 
+        public int GetNextWaybill()
+        {
+            var q = from s in db.Shipments select s;
+            var holder = q.OrderByDescending(s => s.WaybillID).ToList();
+            if(holder.Count == 0)
+            {
+                return 1;
+            }
+            return holder[0].WaybillID + 1;
+        }
+
         // GET: Base
         public decimal convert(string currency, decimal amount)
         {

@@ -288,7 +288,8 @@ namespace SinExWebApp20444290.Controllers
                         s.DeliveredAt,
                         s.Status,
                         s.Origin,
-                        s.Destination
+                        s.Destination,
+                        s.PickupDate
                     };
             var holder = q.ToList();
             List<Shipment> ss = new List<Shipment>();
@@ -301,6 +302,7 @@ namespace SinExWebApp20444290.Controllers
                 s.Status = item.Status;
                 s.Origin = item.Origin;
                 s.Destination = item.Destination;
+                s.PickupDate = item.PickupDate;
                 ss.Add(s);
             }
 
@@ -323,7 +325,7 @@ namespace SinExWebApp20444290.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult TrackingSystemStatusEdit([Bind(Include = "WaybillID,RecipientName,DeliveredAt,Status,Destination,Origin")] Shipment shipment)
+        public ActionResult TrackingSystemStatusEdit([Bind(Include = "WaybillID,RecipientName,DeliveredAt,Status,Destination,Origin,PickupDate")] Shipment shipment)
         {
             if (ModelState.IsValid)
             {
@@ -331,6 +333,7 @@ namespace SinExWebApp20444290.Controllers
                 db.Entry(shipment).Property(x => x.RecipientName).IsModified = true;
                 db.Entry(shipment).Property(x => x.DeliveredAt).IsModified = true;
                 db.Entry(shipment).Property(x => x.Status).IsModified = true;
+                db.Entry(shipment).Property(x => x.PickupDate).IsModified = true;
                 db.SaveChanges();
                 return RedirectToAction("TrackingSystemStatus");
             }
