@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using SinExWebApp20444290.Models;
 using SinExWebApp20444290.ViewModels;
 using System.Net.Mail;
+using System.Net;
 
 namespace SinExWebApp20444290.Controllers
 {
@@ -208,18 +209,18 @@ namespace SinExWebApp20444290.Controllers
 
                         //// Create an instance of SmtpClient named emailServer.
                         //// Set the mail server to use as "smtp.ust.hk".
-                        //SmtpClient emailServer = new SmtpClient("smtp.ust.hk");
+                        //SmtpClient emailServer = new SmtpClient("smtp.cse.ust.hk");
 
                         //// Set the sender (From), receiver (To), subject and 
                         //// message body fields of the mail message.
                         //mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "SinEx");
-                        //mail.To.Add("comp3111_team101@cse.ust.hk");
+                        //mail.To.Add(user.Email);
                         //mail.Subject = "Test";
                         //mail.Body = "Hello world";
 
                         //// Send the message.
                         //emailServer.Send(mail);
-                        return RedirectToAction("Index", "Home");
+                        //return RedirectToAction("Index", "Home");
                     }
                     else
                     {
