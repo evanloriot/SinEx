@@ -33,7 +33,6 @@
                             <li>@Html.ActionLink("Service/Package Fees", "Index", "ServicePackageFees")</li>
                             <li>@Html.ActionLink("Estimate Cost", "EstimateCost", "ServicePackageFees")</li>
                             <li>@Html.ActionLink("Fees", "Index", "Currencies")</li>
-                            <li>@Html.ActionLink("Fee Calculator", "Index", "Calculate")</li>
                         </ul>
                     </li>
                     @if (Request.IsAuthenticated && !User.IsInRole("Employee"))
@@ -70,6 +69,10 @@
                                 <li>@Html.ActionLink("Update Package Weight", "EmployeePackage", "Shipments")</li>
                             </ul>
                         </li>
+                    }
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Fee Calculator", "Index", "Calculate")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
