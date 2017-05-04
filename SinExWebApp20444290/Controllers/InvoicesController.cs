@@ -198,9 +198,10 @@ namespace SinExWebApp20444290.Controllers
                         s.ReferenceNumber,
                         s.ShippingAccount,
                         s.RecipientName,
-                        s.ShipmentTotalAmount,
+                        s.ShipmentAmount,
                         s.Packages,
                         s.ShipmentPayer,
+                        s.recipientAddress
                     };
             var holder = q.ToList()[0];
 
@@ -210,7 +211,7 @@ namespace SinExWebApp20444290.Controllers
 
             PersonalShippingAccount psa = (PersonalShippingAccount) a.ToList()[0];
 
-            int authorizationCode = BaseController.AuthorizeCreditCard("", "", holder.ShipmentTotalAmount);
+            int authorizationCode = BaseController.AuthorizeCreditCard("", "", holder.ShipmentAmount);
 
             Invoice invoice = new Invoice();
             invoice.AuthorizationCode = authorizationCode.ToString();
@@ -220,7 +221,7 @@ namespace SinExWebApp20444290.Controllers
                 break;
             }
             invoice.PayerCharacter = holder.ShipmentPayer ? psa.FirstName + " " + psa.LastName : holder.RecipientName;
-            invoice.PaymentAmount = holder.ShipmentTotalAmount;
+            invoice.PaymentAmount = holder.ShipmentAmount;
             invoice.WaybillID = WaybillID;
 
             //string email = holder.ShipmentPayer ? psa.Email : holder.RecipientEmail;
@@ -236,7 +237,7 @@ namespace SinExWebApp20444290.Controllers
             html = html + "<p>Sender name: " + psa.FirstName + " " + psa.LastName + "</p>";
             html = html + "<p>Sender address: " + psa.Building + ", " + psa.Street + ", " + psa.City + ", " + psa.Province + ", " + psa.PostalCode + "</p>";
             html = html + "<p>Recipient name: " + holder.RecipientName + "</p>";
-            //html = html + "<p>Recipient address: " + holder.RecipientAddress + "</p>";//fix this
+            html = html + "<p>Recipient address: " + holder.recipientAddress + "</p>";//fix this
             html = html + "<p>Credit card type: " + psa.ccType + "</p>";
             html = html + "<p>Credit card number: " + psa.ccNumber + "</p>";
             html = html + "<p>Authorization code: " + invoice.AuthorizationCode + "</p>";
