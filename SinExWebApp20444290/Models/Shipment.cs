@@ -55,18 +55,21 @@ namespace SinExWebApp20444290.Models
         public virtual bool ShipmentPayer { get; set; }
         public virtual decimal? Duty { get; set; }
         public virtual decimal? Tax { get; set; }
-        public virtual bool Payed { get; set; }
-        [Display(Name = "Estimated total shipment cost")]
-        public virtual decimal EstimatedShipmentTotalAmount { get; set; }
         [Display(Name = "Actual total shipment cost")]
-        public virtual decimal ShipmentTotalAmount { get; set; }
-        [Display(Name = "Shipment confirmed")]
-        public virtual bool ShipmentConfirm { get; set; }
-        [Display(Name = "Shipment picked up")]
-        public virtual bool Pickup { get; set; }
-        [Display(Name = "Shipment canceled")]
-        public virtual bool Canceled { get; set; }
-        [Display(Name = "Shipment delivered")]
-        public virtual bool Delivered { get; set; }
+        public virtual decimal ShipmentAmount { get; set; }
+        //[Display(Name = "Shipment confirmed")]
+        //public virtual bool ShipmentConfirm { get; set; }
+        //[Display(Name = "Shipment picked up")]
+        //public virtual bool Pickup { get; set; }
+        //[Display(Name = "Shipment canceled")]
+        //public virtual bool Canceled { get; set; }
+        //[Display(Name = "Shipment delivered")]
+        //public virtual bool Delivered { get; set; }
+
+        [Display(Name = "Recipient email")]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Please enter a valid email address.")]
+        public virtual string recipientEmail { get; set; }
+        [Display(Name = "Recipient address")]
+        public virtual string recipientAddress { get; set; }
     }
 }

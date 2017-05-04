@@ -29,6 +29,11 @@ namespace SinExWebApp20444290.Controllers
             int? page)
         {
 
+            if (ShippingAccountId == null)
+            {
+                ShippingAccountId = currentShippingAccountId;
+            }
+
             // Instantiate an instance of the PaymentsReportViewModel and the PaymentsSearchViewModel.
             var PaymentReport = new PaymentsReportViewModel();
             PaymentReport.PaymentSearch = new PaymentsSearchViewModel();
