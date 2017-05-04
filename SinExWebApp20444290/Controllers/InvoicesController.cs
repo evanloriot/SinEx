@@ -189,33 +189,23 @@ namespace SinExWebApp20444290.Controllers
 
         public void CreateInvoice(int WaybillID)
         {
-            var q = from s in db.Shipments
-                    select new
-                    {
-                        s.ShippingAccountID,
-                        s.PickupDate,
-                        s.ServiceType,
-                        s.ReferenceNumber,
-                        s.ShippingAccount,
-                        s.RecipientName,
-                        s.ShipmentAmount,
-                        s.Packages,
-                        s.ShipmentPayer,
-                        s.recipientAddress
-                    };
+            var q = from s in db.Shipments select s;
+            q = q.Where(x => x.WaybillID == WaybillID);
             var holder = q.ToList()[0];
 
-            var a = from s in db.ShippingAccounts
-                    select s;
+            var a = from s in db.ShippingAccounts select s;
             a = a.Where(s => s.ShippingAccountID == holder.ShippingAccountID);
 
             PersonalShippingAccount psa = (PersonalShippingAccount) a.ToList()[0];
 
-            int authorizationCode = BaseController.AuthorizeCreditCard("", "", holder.ShipmentAmount);
+            int authorizationCode = BaseController.AuthorizeCreditCard(psa.ccNumber, psa.ccSecurityNumber, holder.ShipmentAmount);
 
             Invoice invoice = new Invoice();
             invoice.AuthorizationCode = authorizationCode.ToString();
-            foreach(var item in holder.Packages)
+
+            var n = from s in db.Packages select s;
+            n = n.Where(x => x.WaybillID == WaybillID);
+            foreach(var item in n.ToList())
             {
                 invoice.CurrencyCode = item.CurrencyCode;
                 break;
@@ -223,6 +213,7 @@ namespace SinExWebApp20444290.Controllers
             invoice.PayerCharacter = holder.ShipmentPayer ? psa.FirstName + " " + psa.LastName : holder.RecipientName;
             invoice.PaymentAmount = holder.ShipmentAmount;
             invoice.WaybillID = WaybillID;
+            invoice.UserName = psa.UserName;
 
             //string email = holder.ShipmentPayer ? psa.Email : holder.RecipientEmail;
 

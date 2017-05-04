@@ -214,7 +214,7 @@ namespace SinExWebApp20444290.Controllers
                         s.Location,
                         s.Remarks
                     };
-            t = t.Where(s => s.WaybillID == WaybillID).Distinct();
+            t = t.Where(s => s.WaybillID == WaybillID).Distinct().OrderBy(s => s.DateTime);
             var holder = t.ToList();
             List<TrackingStatement> trackingStatements = new List<TrackingStatement>();
             TrackingStatement trackingStatement = new TrackingStatement();
@@ -384,9 +384,11 @@ namespace SinExWebApp20444290.Controllers
         {
             if (ModelState.IsValid)
             {
+                shipment.Payed = true;
                 db.Shipments.Attach(shipment);
                 db.Entry(shipment).Property(x => x.Duty).IsModified = true;
                 db.Entry(shipment).Property(x => x.Tax).IsModified = true;
+                db.Entry(shipment).Property(x => x.Payed).IsModified = true;
                 db.SaveChanges();
 
                 int waybillID = shipment.WaybillID;
@@ -400,6 +402,10 @@ namespace SinExWebApp20444290.Controllers
                     {
                         weighed = false;
                     }
+                }
+                if(holder.Count == 0)
+                {
+                    weighed = false;
                 }
                 if (weighed)
                 {
@@ -463,7 +469,8 @@ namespace SinExWebApp20444290.Controllers
                 int waybillID = package.WaybillID;
                 var q = from s in db.Shipments select s;
                 q = q.Where(x => x.WaybillID == waybillID);
-                bool payed = q.ToList()[0].Payed;
+                bool payed = false;
+                if(q.ToList().Count != 0) payed = q.ToList()[0].Payed;
                 if (payed)
                 {
                     new InvoicesController().CreateInvoice(waybillID);
