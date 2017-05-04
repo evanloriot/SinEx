@@ -44,8 +44,10 @@ namespace SinExWebApp20444290.Controllers
                 decimal exchangeRate = db.Currencies.Where(s => s.CurrencyCode == Calculator.currencyCode).Select(s => s.ExchangeRate).First();
                 foreach (FeePackageViewModel package in Calculator.packages)
                 {
-                    string limitString = db.PackageTypeSizes.Where(a => a.Description == package.packageType).Select(a => a).First().WeightLimit;
-                    package.limit = Int32.Parse(limitString);
+                    //string limitString = db.PackageTypeSizes.Where(a => a.Description == package.packageType).Select(a => a).First().WeightLimit;
+                    int limitString = 30;
+                    //package.limit = Int32.Parse(limitString);
+                    package.limit = limitString;
                     package.weight = Math.Round((decimal)package.weight, 1);
                     package.result = db.ServicePackageFees.SingleOrDefault(s => s.PackageType.Type == package.packageType && s.ServiceType.Type == Calculator.serviceType);
                     decimal fee = 0;
@@ -60,15 +62,12 @@ namespace SinExWebApp20444290.Controllers
                         case 2:
                             if (package.weight * package.result.Fee > package.result.MinimumFee)
                             {
+                                fee = (decimal)package.weight * package.result.Fee;
                                 if (package.weight > package.limit) //Oversized Packaged
                                 {
                                     fee += 500;
                                     package.penalty = true;
-                                }
-                                else
-                                {
-                                    fee = (decimal)package.weight * package.result.Fee;
-                                }                               
+                                }                          
                             }
                             else //Under the minimum weight
                             {
@@ -90,14 +89,11 @@ namespace SinExWebApp20444290.Controllers
                         case 4:
                             if (package.weight * package.result.Fee > package.result.MinimumFee)
                             {
-                                if(package.weight > package.limit) //Oversized Packaged
+                                fee = (decimal)package.weight * package.result.Fee;
+                                if (package.weight > package.limit) //Oversized Packaged
                                 {
                                     fee += 500;
                                     package.penalty = true;
-                                }
-                                else
-                                {
-                                    fee = (decimal)package.weight * package.result.Fee;
                                 }
                             }
                             else //Under the minimum weight
