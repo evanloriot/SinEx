@@ -55,6 +55,7 @@ namespace SinExWebApp20444290.Models
         public virtual bool ShipmentPayer { get; set; }
         public virtual decimal? Duty { get; set; }
         public virtual decimal? Tax { get; set; }
+        public virtual bool Payed { get; set; }
         [Display(Name = "Actual total shipment cost")]
         public virtual decimal ShipmentAmount { get; set; }
         //[Display(Name = "Shipment confirmed")]
