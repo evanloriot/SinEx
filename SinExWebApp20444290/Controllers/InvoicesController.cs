@@ -198,7 +198,7 @@ namespace SinExWebApp20444290.Controllers
                         s.ReferenceNumber,
                         s.ShippingAccount,
                         s.RecipientName,
-                        s.ShipmentTotalAmount,
+                        s.ShipmentAmount,
                         s.Packages,
                         s.ShipmentPayer,
                     };
@@ -210,7 +210,7 @@ namespace SinExWebApp20444290.Controllers
 
             PersonalShippingAccount psa = (PersonalShippingAccount) a.ToList()[0];
 
-            int authorizationCode = BaseController.AuthorizeCreditCard("", "", holder.ShipmentTotalAmount);
+            int authorizationCode = BaseController.AuthorizeCreditCard("", "", holder.ShipmentAmount);
 
             Invoice invoice = new Invoice();
             invoice.AuthorizationCode = authorizationCode.ToString();
@@ -220,7 +220,7 @@ namespace SinExWebApp20444290.Controllers
                 break;
             }
             invoice.PayerCharacter = holder.ShipmentPayer ? psa.FirstName + " " + psa.LastName : holder.RecipientName;
-            invoice.PaymentAmount = holder.ShipmentTotalAmount;
+            invoice.PaymentAmount = holder.ShipmentAmount;
             invoice.WaybillID = WaybillID;
 
             //string email = holder.ShipmentPayer ? psa.Email : holder.RecipientEmail;
