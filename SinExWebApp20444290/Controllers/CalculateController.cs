@@ -44,9 +44,8 @@ namespace SinExWebApp20444290.Controllers
                 decimal exchangeRate = db.Currencies.Where(s => s.CurrencyCode == Calculator.currencyCode).Select(s => s.ExchangeRate).First();
                 foreach (FeePackageViewModel package in Calculator.packages)
                 {
-                    //string limitString = db.PackageTypeSizes.Where(a => a.Description == package.packageType).Select(a => a).First().WeightLimit;
-                    string limitString = "1000000";
-                    package.limit = limitString;
+                    string limitString = db.PackageTypeSizes.Where(a => a.Description == package.packageType).Select(a => a).First().WeightLimit;
+                    package.limit = Int32.Parse(limitString);
                     package.weight = Math.Round((decimal)package.weight, 1);
                     package.result = db.ServicePackageFees.SingleOrDefault(s => s.PackageType.Type == package.packageType && s.ServiceType.Type == Calculator.serviceType);
                     decimal fee = 0;
@@ -57,22 +56,23 @@ namespace SinExWebApp20444290.Controllers
                         case 1:
                             fee = package.result.Fee;
                             break;
-                        //Pak/Box
+                        //Pak
                         case 2:
                             if (package.weight * package.result.Fee > package.result.MinimumFee)
                             {
-                                fee = (decimal)package.weight * package.result.Fee;
+                                if (package.weight > package.limit) //Oversized Packaged
+                                {
+                                    fee += 500;
+                                    package.penalty = true;
+                                }
+                                else
+                                {
+                                    fee = (decimal)package.weight * package.result.Fee;
+                                }                               
                             }
-                            else
+                            else //Under the minimum weight
                             {
                                 fee = package.result.MinimumFee;
-                            }
-                            int limit = 0;
-                            bool convertResult = Int32.TryParse(limitString.Substring(0, limitString.Length - 2), out limit);
-                            if (limit != 0 && convertResult == true && package.weight > (decimal)limit)
-                            {
-                                fee += 500;
-                                package.penalty = true;
                             }
                             break;
                         //Tube
@@ -86,21 +86,23 @@ namespace SinExWebApp20444290.Controllers
                                 fee = package.result.MinimumFee;
                             }
                             break;
+                        //Box
                         case 4:
                             if (package.weight * package.result.Fee > package.result.MinimumFee)
                             {
-                                fee = (decimal)package.weight * package.result.Fee;
+                                if(package.weight > package.limit) //Oversized Packaged
+                                {
+                                    fee += 500;
+                                    package.penalty = true;
+                                }
+                                else
+                                {
+                                    fee = (decimal)package.weight * package.result.Fee;
+                                }
                             }
-                            else
+                            else //Under the minimum weight
                             {
                                 fee = package.result.MinimumFee;
-                            }
-                            int weightLimit = 0;
-                            bool ConvertResult = Int32.TryParse(limitString.Substring(0, limitString.Length - 2), out weightLimit);
-                            if (weightLimit != 0 && ConvertResult == true && package.weight > (decimal)weightLimit)
-                            {
-                                fee += 500;
-                                package.penalty = true;
                             }
                             break;
                         //Customer

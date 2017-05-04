@@ -15,6 +15,6 @@ namespace SinExWebApp20444290.ViewModels
         public virtual decimal weight { get; set; }
         public virtual bool penalty { get; set; }
         public virtual decimal fee { get; set; }
-        public virtual string limit { get; set; }
+        public virtual int limit { get; set; }
     }
 }
