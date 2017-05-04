@@ -288,7 +288,9 @@ namespace SinExWebApp20444290.Controllers
                         s.DeliveredAt,
                         s.Status,
                         s.Origin,
-                        s.Destination
+                        s.Destination,
+                        s.recipientEmail,
+                        s.recipientAddress
                     };
             var holder = q.ToList();
             List<Shipment> ss = new List<Shipment>();
@@ -301,6 +303,8 @@ namespace SinExWebApp20444290.Controllers
                 s.Status = item.Status;
                 s.Origin = item.Origin;
                 s.Destination = item.Destination;
+                s.recipientEmail = item.recipientEmail;
+                s.recipientAddress = item.recipientAddress;
                 ss.Add(s);
             }
 

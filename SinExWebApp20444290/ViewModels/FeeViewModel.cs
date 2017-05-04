@@ -23,11 +23,8 @@ namespace SinExWebApp20444290.ViewModels
         public virtual string serviceType { get; set; }
         [Required]
         public virtual string currencyCode { get; set; }
-        [Required]
         public virtual string RecipientName { get; set; }
-        [Required]
         public virtual string RecipientAddress { get; set; }
-        [Required]
         public virtual string RecipientEmail { get; set; }
     }
 }

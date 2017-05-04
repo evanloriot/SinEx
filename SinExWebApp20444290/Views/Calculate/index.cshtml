@@ -46,11 +46,11 @@
                     @Html.ValidationMessageFor(a => a.packages[i].packageType, "", new { @class = "text-danger" })
                 </div>
 
-                @*@Html.LabelFor(a => a.packages[i].size, "Size: ", new { @class = "control-label col-md-4" })
+                @Html.LabelFor(a => a.packages[i].size, "Size: ", new { @class = "control-label col-md-4" })
                 <div class="col-md-8">
                     @Html.DropDownListFor(a => a.packages[i].size, Model.param.sizes, "Please select...", new { @class = "form-control", Value = ViewBag.currentPackageSize })
                     @Html.ValidationMessageFor(a => a.packages[i].size, "", new { @class = "text-danger" })
-                </div>*@
+                </div>
 
                 @Html.LabelFor(a => a.packages[i].weight, "Weight(kg): ", new { @class = "control-label col-md-4" })
                 <div class="col-md-8">
