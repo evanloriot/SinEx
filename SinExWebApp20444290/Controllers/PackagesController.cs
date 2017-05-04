@@ -139,10 +139,10 @@ namespace SinExWebApp20444290.Controllers
                 db.SaveChanges();
 
 
-                shipment.EstimatedShipmentTotalAmount = 0;
+                shipment.ShipmentAmount = 0;
                 foreach(Package p in shipment.Packages)
                 {
-                    shipment.EstimatedShipmentTotalAmount += PackageFee(p);
+                    shipment.ShipmentAmount += PackageFee(p);
                 }
                 db.Entry(shipment).State = EntityState.Modified;
                 db.SaveChanges();
@@ -242,7 +242,7 @@ namespace SinExWebApp20444290.Controllers
             Shipment shipment = db.Shipments.Single(s => s.WaybillID == package.WaybillID);
             db.Packages.Remove(package);
             shipment.NumberOfPackages -= 1;
-            shipment.EstimatedShipmentTotalAmount -= (decimal)package.Fee;
+            shipment.ShipmentAmount -= (decimal)package.Fee;
             db.Entry(shipment).State = EntityState.Modified;
             db.SaveChanges();
             return RedirectToAction("Index", new { WaybillId = package.WaybillID });
