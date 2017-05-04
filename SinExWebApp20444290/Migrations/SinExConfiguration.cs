@@ -20,10 +20,13 @@ namespace SinExWebApp20444290.Migrations
             // Add package type data.
             context.PackageTypes.AddOrUpdate(
                 p => p.PackageTypeID,
-                new PackageType { PackageTypeID = 1, Type = "Envelope", Description = "for correspondence and documents only with no commercial value" },
-                new PackageType { PackageTypeID = 2, Type = "Pak", Description = "for flat, non-breakable articles including heavy documents" },
-                new PackageType { PackageTypeID = 3, Type = "Tube", Description = "for larger documents, such as blueprints, which should be rolled rather than folded" },
-                new PackageType { PackageTypeID = 4, Type = "Box", Description = "for bulky items, such as electronic parts and textile samples" },
+                new PackageType { PackageTypeID = 1, Type = "Envelope", Description = "for correspondence and documents only with no commercial value", Size = "250x350mm" },
+                new PackageType { PackageTypeID = 2, Type = "Pak", Description = "for flat, non-breakable articles including heavy documents", Size = " small - 350x400mm" },
+                new PackageType { PackageTypeID = 2, Type = "Pak", Description = "for flat, non-breakable articles including heavy documents", Size = " large - 450x550mm" },
+                new PackageType { PackageTypeID = 3, Type = "Tube", Description = "for larger documents, such as blueprints, which should be rolled rather than folded", Size = "Size: 1000x80mm" },
+                new PackageType { PackageTypeID = 4, Type = "Box", Description = "for bulky items, such as electronic parts and textile samples", Size = "small - 300x250x150mm" },
+                new PackageType { PackageTypeID = 4, Type = "Box", Description = "for bulky items, such as electronic parts and textile samples", Size = "medium - 400x350x250mm" },
+                new PackageType { PackageTypeID = 4, Type = "Box", Description = "for bulky items, such as electronic parts and textile samples", Size = "large - 500x450x350mm" },
                 new PackageType { PackageTypeID = 5, Type = "Customer", Description = "for packaging provided by customer" }
             );
 
