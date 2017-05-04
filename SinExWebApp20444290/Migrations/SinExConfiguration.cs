@@ -190,7 +190,7 @@ namespace SinExWebApp20444290.Migrations
                     Origin = "Tsim Sha Tsui",
                     Destination = "Shanghai",
                     Status = "Delivered",
-                    ShippingAccountID = 6
+                    ShippingAccountID = 1
                 }
             );
 

@@ -203,22 +203,22 @@ namespace SinExWebApp20444290.Controllers
                         //smtpClient.Send(mail);
 
 
-                        //// Create an instance of MailMessage named mail.
-                        //MailMessage mail = new MailMessage();
+                        // Create an instance of MailMessage named mail.
+                        MailMessage mail = new MailMessage();
 
-                        //// Create an instance of SmtpClient named emailServer.
-                        //// Set the mail server to use as "smtp.ust.hk".
-                        //SmtpClient emailServer = new SmtpClient("smtp.ust.hk");
+                        // Create an instance of SmtpClient named emailServer.
+                        // Set the mail server to use as "smtp.ust.hk".
+                        SmtpClient emailServer = new SmtpClient("smtp.ust.hk");
 
-                        //// Set the sender (From), receiver (To), subject and 
-                        //// message body fields of the mail message.
-                        //mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "SinEx");
-                        //mail.To.Add("comp3111_team101@cse.ust.hk");
-                        //mail.Subject = "Test";
-                        //mail.Body = "Hello world";
+                        // Set the sender (From), receiver (To), subject and 
+                        // message body fields of the mail message.
+                        mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "SinEx");
+                        mail.To.Add("comp3111_team101@cse.ust.hk");
+                        mail.Subject = "Test";
+                        mail.Body = "Hello world";
 
-                        //// Send the message.
-                        //emailServer.Send(mail);
+                        // Send the message.
+                        emailServer.Send(mail);
                         return RedirectToAction("Index", "Home");
                     }
                     else
