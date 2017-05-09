@@ -23,7 +23,17 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Services<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Shipment Activity", "TrackShipment", "Shipments")</li>
+                            <li>@Html.ActionLink("Shipment Pickup", "Index", "Destinations")</li>
+                            <li>@Html.ActionLink("Add City", "Edit", "Destinations")</li>
+                            <li>@Html.ActionLink("Change Fee", "Index", "Destinations")</li>
+                            <li>@Html.ActionLink("Change Currency", "Index", "Destinations")</li>
+                        </ul>                           
+                    </li>
+
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -44,15 +54,14 @@
                                 <li>@Html.ActionLink("Manage Pickup Locations", "Index", "PickupLocations")</li>
                             </ul>
                         </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Shipping History", "GenerateHistoryReport", "Shipments")</li>
-                                <li>@Html.ActionLink("Invoice History", "GeneratePaymentHistoryReport", "Invoices")</li>
-                            </ul>
-                        </li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Reports<b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Shipping History", "GenerateHistoryReport", "Shipments")</li>
+                                        <li>@Html.ActionLink("Invoice History", "GeneratePaymentHistoryReport", "Invoices")</li>
+                                    </ul>
+                                </li>
                     }
-                    <li>@Html.ActionLink("Track Shipment", "TrackShipment", "Shipments")</li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Testing<b class="caret"></b></a>
                         <ul class="dropdown-menu">
@@ -75,8 +84,9 @@
                         <li>@Html.ActionLink("Make Shipment", "Index", "Calculate")</li>
                     }
                 </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+
+                        @Html.Partial("_LoginPartial")
+</div>
         </div>
     </div>
     <div class="container body-content">

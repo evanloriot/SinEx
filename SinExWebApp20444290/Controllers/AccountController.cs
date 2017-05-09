@@ -186,47 +186,6 @@ namespace SinExWebApp20444290.Controllers
                         db.SaveChanges();
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                        // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                        // Send an email with this link
-                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                        // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
-                        //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-                        //smtpClient.Credentials = new System.Net.NetworkCredential("sinexsmtp@gmail.com", "MyPassword123");
-                        //smtpClient.UseDefaultCredentials = true;
-                        //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                        //smtpClient.EnableSsl = true;
-                        //MailMessage mail = new MailMessage();
-                        //mail.From = new MailAddress("sinexsmtp@gmail.com");
-                        //MailAddress a = model.PersonalInformation != null ? new MailAddress(model.PersonalInformation.Email) : new MailAddress(model.BusinessInformation.Email);
-                        //mail.To.Add(a);
-                        //smtpClient.Send(mail);
-
-
-                        //// Create an instance of MailMessage named mail.
-                        //MailMessage mail = new MailMessage();
-
-                        //// Create an instance of SmtpClient named emailServer.
-                        //// Set the mail server to use as "smtp.ust.hk".
-                        //SmtpClient emailServer = new SmtpClient("smtp.cse.ust.hk");
-
-                        //// Set the sender (From), receiver (To), subject and 
-                        //// message body fields of the mail message.
-                        //mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "SinEx");
-                        //mail.To.Add(user.Email);
-                        //mail.Subject = "Test";
-                        //mail.Body = "Hello world";
-
-                        //// Send the message.
-                        //emailServer.Send(mail);
-
-                        //For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                        //Send an email with this link
-                        //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                        //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                        //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
                         // Create an instance of MailMessage named mail.
                         MailMessage mail = new MailMessage();
 
