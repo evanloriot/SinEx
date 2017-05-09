@@ -220,6 +220,29 @@ namespace SinExWebApp20444290.Controllers
 
                         //// Send the message.
                         //emailServer.Send(mail);
+
+                        //For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                        //Send an email with this link
+                        //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        //await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                        // Create an instance of MailMessage named mail.
+                        MailMessage mail = new MailMessage();
+
+                        // Create an instance of SmtpClient named emailServer.
+                        // Set the mail server to use as "smtp.ust.hk".
+                        using (SmtpClient emailServer = new SmtpClient("smtp.cse.ust.hk"))
+                        {
+                            mail.From = new MailAddress("comp3111_team101@cse.ust.hk", "SinEx");
+                            mail.Subject = "Sinex account creation";
+                            MailAddress a = model.PersonalInformation != null ? new MailAddress(model.PersonalInformation.Email) : new MailAddress(model.BusinessInformation.Email);
+                            mail.Body = "Welcome to Sinex mail service.\n";
+                            mail.To.Add(a);
+                            emailServer.Send(mail);
+                        }
+
+
                         return RedirectToAction("Index", "Home");
                     }
                     else
