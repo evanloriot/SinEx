@@ -79,12 +79,12 @@
 
 @if (ViewBag.Cost != null && ViewBag.Cost != 0)
 {
-    <div>Cost: ¥@(ViewBag.PreCost * ViewBag.Rate)</div>
+    <div>Cost: @(ViewBag.PreCost * ViewBag.Rate)</div>
     if (ViewBag.IsOverWeight)
     {
-        <div>Overwight charge: ¥@(500.00 * ViewBag.Rate)</div>
+        <div>Overwight charge: @(500.00 * ViewBag.Rate)</div>
     }
-    <div>Estimated cost: ¥@ViewBag.Cost</div>
+    <div>Estimated cost: @ViewBag.Cost</div>
 }
 
 <script>

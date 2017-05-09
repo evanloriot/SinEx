@@ -36,6 +36,7 @@
                 @foreach (var item in Model.Where(n => n.ServicePackageFeeID == i))
                 {
                     @Html.DisplayFor(modelItem => item.PackageType.Type)
+                    @Html.ActionLink("  Edit", "Edit", new { id = item.ServiceTypeID })
                 }
             </td>
         }

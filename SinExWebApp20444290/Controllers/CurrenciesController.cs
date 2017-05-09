@@ -84,6 +84,7 @@ namespace SinExWebApp20444290.Controllers
             {
                 db.Entry(currency).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
             return View(currency);

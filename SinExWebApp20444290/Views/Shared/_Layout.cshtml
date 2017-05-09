@@ -27,10 +27,10 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin Services<b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>@Html.ActionLink("Shipment Activity", "TrackShipment", "Shipments")</li>
-                            <li>@Html.ActionLink("Shipment Pickup", "Index", "Destinations")</li>
-                            <li>@Html.ActionLink("Add City", "Edit", "Destinations")</li>
-                            <li>@Html.ActionLink("Change Fee", "Index", "Destinations")</li>
-                            <li>@Html.ActionLink("Change Currency", "Index", "Destinations")</li>
+                            <li>@Html.ActionLink("Shipment Pickup", "Index", "PickupLocations")</li>
+                            <li>@Html.ActionLink("Add City", "Create", "Destinations")</li>
+                            <li>@Html.ActionLink("Change Fee", "Index", "ServicePackageFees")</li>
+                            <li>@Html.ActionLink("Change Currency", "Index", "Currencies")</li>
                         </ul>                           
                     </li>
 
@@ -93,7 +93,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Evan Loriot (20444290)</p>
+            <p>&copy; @DateTime.Now.Year - Les fans de bytes (Team 101)</p>
         </footer>
     </div>
 

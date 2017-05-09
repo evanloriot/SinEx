@@ -154,7 +154,74 @@ namespace SinExWebApp20444290.Controllers
             ViewBag.WaybillId = package.WaybillID;
             return View(package);
         }
+        public decimal PackageFeePublic(int weight, int PackageTypeID)
+        {
+            Package Package = new Package();
+            Package.PackageTypeID = PackageTypeID;
+            Package.Weight = weight;
+            decimal price = 0;
+            switch (Package.PackageTypeID)
+            {
+                //Envelop
+                case 1:
+                    price = 160;
+                    break;
+                //Pack/Box
+                case 2:
+                    if (Package.Weight * 100 > 160)
+                    {
+                        price = (decimal)Package.Weight * 100;
+                    }
+                    else
+                    {
+                        price = 160;
+                    }
+                    int limit = 5;
+                    if (limit < Package.Weight)
+                    {
+                        price += 500;
+                    }
+                    break;
+                case 4:
+                    if (Package.Weight * 110 > 160)
+                    {
+                        price = (decimal)Package.Weight * 110;
+                    }
+                    else
+                    {
+                        price = 160;
+                    }
+                    int weightLimit = 10;
 
+                    if (weightLimit < Package.Weight)
+                    {
+                        price += 500;
+                    }
+                    break;
+                //Tube or Customer
+                case 3:
+                    if (Package.Weight * 100 > 160)
+                    {
+                        price = (decimal)Package.Weight * 100;
+                    }
+                    else
+                    {
+                        price = 160;
+                    }
+                    break;
+                case 5:
+                    if (Package.Weight * 110 > 160)
+                    {
+                        price = (decimal)Package.Weight * 110;
+                    }
+                    else
+                    {
+                        price = 160;
+                    }
+                    break;
+            }
+            return price;
+        }
         //Calculate package fee from declared weight in RMB
         private decimal PackageFee(Package Package)
         {

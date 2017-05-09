@@ -82,9 +82,7 @@ namespace SinExWebApp20444290.Controllers
         {
             if (ModelState.IsValid)
             {
-                var query = (Destination)db.Destinations.Find(destination.DestinationID);
-                query.City = destination.City;
-                query.ProvinceCode = destination.ProvinceCode;
+                db.Entry(destination).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

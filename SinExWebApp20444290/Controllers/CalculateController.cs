@@ -49,6 +49,7 @@ namespace SinExWebApp20444290.Controllers
                     //package.limit = Int32.Parse(limitString);
                     package.limit = limitString;
                     package.weight = Math.Round((decimal)package.weight, 1);
+                    
                     package.result = db.ServicePackageFees.SingleOrDefault(s => s.PackageType.Type == package.packageType && s.ServiceType.Type == Calculator.serviceType);
                     decimal fee = 0;
                     package.penalty = false;
